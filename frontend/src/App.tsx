@@ -1,22 +1,18 @@
-import Navigation from './components/Navigation';
 import Hero from './components/Hero';
+import HowItWorks from './components/HowItWorks';
 import Features from './components/Features';
-import Architecture from './components/Architecture';
 import UseCases from './components/UseCases';
-import Roadmap from './components/Roadmap';
 import Footer from './components/Footer';
 import './index.css';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
-      <Navigation />
+    <div className="min-h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] font-serif selection:bg-[#333] selection:text-white">
       <main>
         <Hero />
+        <HowItWorks />
         <Features />
-        <Architecture />
         <UseCases />
-        <Roadmap />
       </main>
       <Footer />
     </div>

@@ -1,55 +1,52 @@
 /* Import Modern Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @import "tailwindcss";
 
 /* ============================================
    SOLSTICE PROTOCOL DESIGN SYSTEM
-   Tailwind CSS v4 + Custom Design Tokens
+   Premium 0g.ai-Inspired Theme
    ============================================ */
 
 /* ============================================
    CUSTOM THEME VARIABLES
    ============================================ */
 @theme {
-  /* Color Palette - ZK Privacy Theme */
-  --color-bg-primary: #0a0a0f;
-  --color-bg-secondary: #12121a;
-  --color-bg-tertiary: #1a1a28;
+  /* Color Palette - Matte Grey & Serif */
+  --color-bg-primary: #1e1e1e;
+  --color-bg-secondary: #252525;
+  --color-bg-tertiary: #2d2d2d;
 
-  /* Primary Purple/Blue Gradient Colors */
-  --color-primary: #8b5cf6;
-  --color-primary-light: #a78bfa;
-  --color-primary-dark: #7c3aed;
-  --color-secondary: #3b82f6;
-  --color-secondary-light: #60a5fa;
-  --color-accent: #06b6d4;
+  /* Monochrome Accents */
+  --color-accent: #444444;
+  --color-accent-light: #666666;
+  --color-accent-highlight: #ffffff;
 
   /* Text Colors */
-  --color-text-primary: #f8fafc;
-  --color-text-secondary: #cbd5e1;
-  --color-text-muted: #94a3b8;
-  --color-text-accent: #a78bfa;
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted: #606060;
 
-  /* Border & Glass */
-  --color-border: rgba(139, 92, 246, 0.2);
-  --color-border-light: rgba(139, 92, 246, 0.1);
-  --color-glass-bg: rgba(26, 26, 40, 0.6);
-  --color-glass-border: rgba(139, 92, 246, 0.3);
+  /* Border */
+  --color-border: #333333;
 
   /* Typography */
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-body: 'Times New Roman', Times, serif;
+  --font-heading: 'Times New Roman', Times, serif;
+}
 
-  /* Custom Animations */
-  --animate-fade-in: fade-in 0.8s ease-out forwards;
-  --animate-slide-up: slide-up 0.8s ease-out forwards;
-  --animate-glow: glow 3s ease-in-out infinite;
-  --animate-float: float 3s ease-in-out infinite;
-  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
-  --animate-gradient: gradient-shift 8s ease infinite;
-  --animate-orb: orb-float 20s ease-in-out infinite;
+/* Global Reset for Serif Vibe */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Remove default selection colors */
+::selection {
+  background: #555;
+  color: #fff;
 }
 
 /* ============================================
@@ -58,7 +55,7 @@
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
 
   to {
@@ -70,7 +67,7 @@
 @keyframes slide-up {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(60px);
   }
 
   to {
@@ -83,11 +80,11 @@
 
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
   }
 
   50% {
-    box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+    box-shadow: 0 0 60px rgba(0, 217, 255, 0.6);
   }
 }
 
@@ -99,7 +96,7 @@
   }
 
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
   }
 }
 
@@ -111,7 +108,7 @@
   }
 
   50% {
-    opacity: 0.5;
+    opacity: 0.4;
   }
 }
 
@@ -137,15 +134,71 @@
   }
 
   25% {
-    transform: translate(50px, -50px) scale(1.1);
+    transform: translate(80px, -80px) scale(1.15);
   }
 
   50% {
-    transform: translate(-30px, 30px) scale(0.95);
+    transform: translate(-50px, 50px) scale(0.9);
   }
 
   75% {
-    transform: translate(30px, 50px) scale(1.05);
+    transform: translate(50px, 80px) scale(1.1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes text-reveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes border-glow {
+
+  0%,
+  100% {
+    border-color: rgba(0, 217, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0);
+  }
+
+  50% {
+    border-color: rgba(0, 217, 255, 0.5);
+    box-shadow: 0 0 40px rgba(0, 217, 255, 0.3);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes line-draw {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
   }
 }
 
@@ -157,52 +210,73 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--color-glass-border);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 @utility glass-light {
-  background: rgba(26, 26, 40, 0.4);
+  background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--color-border-light);
 }
 
 @utility glass-strong {
-  background: rgba(26, 26, 40, 0.8);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
+  background: rgba(10, 10, 16, 0.95);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
   border: 1px solid var(--color-glass-border);
 }
 
 @utility gradient-text {
-  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #00d9ff 0%, #0ea5e9 50%, #06b6d4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+@utility gradient-text-animate {
+  background: linear-gradient(90deg, #00d9ff, #0ea5e9, #06b6d4, #10b981, #00d9ff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 4s linear infinite;
+}
+
 @utility gradient-bg {
-  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #00d9ff 0%, #0891b2 100%);
 }
 
-@utility gradient-border {
+@utility gradient-border-glow {
   position: relative;
-  background: var(--color-bg-secondary);
-  border-radius: 1rem;
+  border: 1px solid transparent;
+  background: linear-gradient(var(--color-bg-secondary), var(--color-bg-secondary)) padding-box,
+    linear-gradient(135deg, rgba(0, 217, 255, 0.5), rgba(14, 165, 233, 0.5)) border-box;
 }
 
-/* Gradient border pseudo-element - not a utility, regular CSS */
+@utility shimmer-bg {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Gradient border pseudo-element */
 .gradient-border::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 2px;
-  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.5) 0%, rgba(14, 165, 233, 0.5) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
 }
 
 /* ============================================
@@ -239,8 +313,9 @@ h5,
 h6 {
   font-family: var(--font-heading);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.1;
   color: var(--color-text-primary);
+  letter-spacing: -0.02em;
 }
 
 code {
@@ -256,16 +331,16 @@ code {
    CUSTOM SCROLLBAR
    ============================================ */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-secondary);
+  background: var(--color-bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #00d9ff 0%, #0891b2 100%);
   border-radius: 9999px;
 }
 
@@ -275,18 +350,26 @@ code {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-primary) var(--color-bg-secondary);
+  scrollbar-color: var(--color-primary) var(--color-bg-primary);
 }
 
 /* ============================================
    SELECTION STYLING
    ============================================ */
 ::selection {
-  background: rgba(139, 92, 246, 0.3);
+  background: rgba(0, 217, 255, 0.4);
   color: var(--color-text-primary);
 }
 
 ::-moz-selection {
-  background: rgba(139, 92, 246, 0.3);
+  background: rgba(0, 217, 255, 0.4);
   color: var(--color-text-primary);
+}
+
+/* ============================================
+   NUMBER STYLING
+   ============================================ */
+.number-outline {
+  -webkit-text-stroke: 1px rgba(0, 217, 255, 0.3);
+  -webkit-text-fill-color: transparent;
 }
