@@ -1,375 +1,110 @@
-/* Import Modern Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 @import "tailwindcss";
 
-/* ============================================
-   SOLSTICE PROTOCOL DESIGN SYSTEM
-   Premium 0g.ai-Inspired Theme
-   ============================================ */
-
-/* ============================================
-   CUSTOM THEME VARIABLES
-   ============================================ */
 @theme {
-  /* Color Palette - Matte Grey & Serif */
-  --color-bg-primary: #1e1e1e;
-  --color-bg-secondary: #252525;
-  --color-bg-tertiary: #2d2d2d;
+  /* --- Typography --- */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Playfair Display", serif;
+  /* Force Playfair as default */
 
-  /* Monochrome Accents */
-  --color-accent: #444444;
-  --color-accent-light: #666666;
-  --color-accent-highlight: #ffffff;
+  /* --- User Provided Palette --- */
 
-  /* Text Colors */
-  --color-text-primary: #f0f0f0;
-  --color-text-secondary: #a0a0a0;
-  --color-text-muted: #606060;
+  /* Shadow Grey */
+  --color-shadow-grey-50: #f0f0f5;
+  --color-shadow-grey-100: #e0e0eb;
+  --color-shadow-grey-200: #c2c2d6;
+  --color-shadow-grey-300: #a3a3c2;
+  --color-shadow-grey-400: #8585ad;
+  --color-shadow-grey-500: #666699;
+  --color-shadow-grey-600: #52527a;
+  --color-shadow-grey-700: #3d3d5c;
+  --color-shadow-grey-800: #29293d;
+  --color-shadow-grey-900: #14141f;
+  --color-shadow-grey-950: #0e0e15;
 
-  /* Border */
-  --color-border: #333333;
+  /* Vintage Grape */
+  --color-vintage-grape-50: #f1f0f5;
+  --color-vintage-grape-100: #e4e0eb;
+  --color-vintage-grape-200: #c9c1d7;
+  --color-vintage-grape-300: #aea2c3;
+  --color-vintage-grape-400: #9384ae;
+  --color-vintage-grape-500: #77659a;
+  --color-vintage-grape-600: #60517b;
+  --color-vintage-grape-700: #483c5d;
+  --color-vintage-grape-800: #30283e;
+  --color-vintage-grape-900: #18141f;
+  --color-vintage-grape-950: #110e16;
 
-  /* Typography */
-  --font-body: 'Times New Roman', Times, serif;
-  --font-heading: 'Times New Roman', Times, serif;
+  /* Stone Brown */
+  --color-stone-brown-50: #f4f3f1;
+  --color-stone-brown-100: #e8e6e3;
+  --color-stone-brown-200: #d1cdc7;
+  --color-stone-brown-300: #bab4ab;
+  --color-stone-brown-400: #a39b8f;
+  --color-stone-brown-500: #8c8273;
+  --color-stone-brown-600: #70685c;
+  --color-stone-brown-700: #544e45;
+  --color-stone-brown-800: #38342e;
+  --color-stone-brown-900: #1c1a17;
+  --color-stone-brown-950: #141210;
+
+  /* Grey Olive */
+  --color-grey-olive-50: #f4f3f1;
+  --color-grey-olive-100: #e9e7e2;
+  --color-grey-olive-200: #d3cec5;
+  --color-grey-olive-300: #bcb6a9;
+  --color-grey-olive-400: #a69e8c;
+  --color-grey-olive-500: #90866f;
+  --color-grey-olive-600: #736b59;
+  --color-grey-olive-700: #565043;
+  --color-grey-olive-800: #3a352c;
+  --color-grey-olive-900: #1d1b16;
+  --color-grey-olive-950: #141310;
+
+  /* Khaki Beige */
+  --color-khaki-beige-50: #f4f3f0;
+  --color-khaki-beige-100: #eae8e1;
+  --color-khaki-beige-200: #d5d1c3;
+  --color-khaki-beige-300: #c0baa5;
+  --color-khaki-beige-400: #aaa388;
+  --color-khaki-beige-500: #958c6a;
+  --color-khaki-beige-600: #777055;
+  --color-khaki-beige-700: #5a543f;
+  --color-khaki-beige-800: #3c382a;
+  --color-khaki-beige-900: #1e1c15;
+  --color-khaki-beige-950: #15140f;
+
+  /* --- Semantic Mappings --- */
+
+  /* Backgrounds */
+  --color-primary: var(--color-shadow-grey-950);
+  --color-secondary: var(--color-shadow-grey-900);
+  --color-tertiary: var(--color-shadow-grey-800);
+
+  /* Text */
+  --color-text-primary: var(--color-stone-brown-50);
+  --color-text-secondary: var(--color-stone-brown-300);
+  --color-text-muted: var(--color-stone-brown-500);
+
+  /* Borders & Accents */
+  --color-border-custom: var(--color-shadow-grey-800);
+
+  /* Feature Accents */
+  --color-accent-grape: var(--color-vintage-grape-400);
+  --color-accent-olive: var(--color-grey-olive-400);
 }
 
-/* Global Reset for Serif Vibe */
+/* Global Reset */
 body {
-  font-family: var(--font-body);
-  background-color: var(--color-bg-primary);
+  font-family: var(--font-serif);
+  background-color: var(--color-primary);
   color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
 }
 
-/* Remove default selection colors */
+/* Selection */
 ::selection {
-  background: #555;
-  color: #fff;
-}
-
-/* ============================================
-   KEYFRAME ANIMATIONS
-   ============================================ */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes glow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
-  }
-
-  50% {
-    box-shadow: 0 0 60px rgba(0, 217, 255, 0.6);
-  }
-}
-
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-15px);
-  }
-}
-
-@keyframes pulse-glow {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.4;
-  }
-}
-
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes orb-float {
-
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  25% {
-    transform: translate(80px, -80px) scale(1.15);
-  }
-
-  50% {
-    transform: translate(-50px, 50px) scale(0.9);
-  }
-
-  75% {
-    transform: translate(50px, 80px) scale(1.1);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes text-reveal {
-  0% {
-    clip-path: inset(0 100% 0 0);
-    opacity: 0;
-  }
-
-  100% {
-    clip-path: inset(0 0 0 0);
-    opacity: 1;
-  }
-}
-
-@keyframes border-glow {
-
-  0%,
-  100% {
-    border-color: rgba(0, 217, 255, 0.2);
-    box-shadow: 0 0 20px rgba(0, 217, 255, 0);
-  }
-
-  50% {
-    border-color: rgba(0, 217, 255, 0.5);
-    box-shadow: 0 0 40px rgba(0, 217, 255, 0.3);
-  }
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes line-draw {
-  0% {
-    stroke-dashoffset: 1000;
-  }
-
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-
-/* ============================================
-   CUSTOM UTILITY CLASSES
-   ============================================ */
-@utility glass {
-  background: var(--color-glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--color-glass-border);
-}
-
-@utility glass-light {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--color-border-light);
-}
-
-@utility glass-strong {
-  background: rgba(10, 10, 16, 0.95);
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
-  border: 1px solid var(--color-glass-border);
-}
-
-@utility gradient-text {
-  background: linear-gradient(135deg, #00d9ff 0%, #0ea5e9 50%, #06b6d4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-@utility gradient-text-animate {
-  background: linear-gradient(90deg, #00d9ff, #0ea5e9, #06b6d4, #10b981, #00d9ff);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient-shift 4s linear infinite;
-}
-
-@utility gradient-bg {
-  background: linear-gradient(135deg, #00d9ff 0%, #0891b2 100%);
-}
-
-@utility gradient-border-glow {
-  position: relative;
-  border: 1px solid transparent;
-  background: linear-gradient(var(--color-bg-secondary), var(--color-bg-secondary)) padding-box,
-    linear-gradient(135deg, rgba(0, 217, 255, 0.5), rgba(14, 165, 233, 0.5)) border-box;
-}
-
-@utility shimmer-bg {
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 2s linear infinite;
-}
-
-/* Gradient border pseudo-element */
-.gradient-border::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(0, 217, 255, 0.5) 0%, rgba(14, 165, 233, 0.5) 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.gradient-border:hover::before {
-  opacity: 1;
-}
-
-/* ============================================
-   BASE STYLES
-   ============================================ */
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
-
-body {
-  font-family: var(--font-body);
-  background-color: var(--color-bg-primary);
-  color: var(--color-text-primary);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-}
-
-#root {
-  width: 100%;
-  min-height: 100vh;
-}
-
-/* ============================================
-   TYPOGRAPHY BASE
-   ============================================ */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.1;
-  color: var(--color-text-primary);
-  letter-spacing: -0.02em;
-}
-
-code {
-  font-family: var(--font-mono);
-  background: var(--color-bg-tertiary);
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  font-size: 0.9em;
-  color: var(--color-text-accent);
-}
-
-/* ============================================
-   CUSTOM SCROLLBAR
-   ============================================ */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-bg-primary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #00d9ff 0%, #0891b2 100%);
-  border-radius: 9999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-light);
-}
-
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-primary) var(--color-bg-primary);
-}
-
-/* ============================================
-   SELECTION STYLING
-   ============================================ */
-::selection {
-  background: rgba(0, 217, 255, 0.4);
-  color: var(--color-text-primary);
-}
-
-::-moz-selection {
-  background: rgba(0, 217, 255, 0.4);
-  color: var(--color-text-primary);
-}
-
-/* ============================================
-   NUMBER STYLING
-   ============================================ */
-.number-outline {
-  -webkit-text-stroke: 1px rgba(0, 217, 255, 0.3);
-  -webkit-text-fill-color: transparent;
+  background: var(--color-vintage-grape-700);
+  color: var(--color-stone-brown-50);
 }

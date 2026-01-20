@@ -31,21 +31,25 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="h-screen flex flex-col items-center justify-center bg-[var(--color-bg-primary)] px-4">
-            <h1
-                ref={titleRef}
-                className="hero-title text-6xl md:text-8xl lg:text-9xl font-normal tracking-tighter text-[var(--color-text-primary)] mb-4 text-center"
-            >
-                Solstice Protocol
-            </h1>
-            <p
-                ref={subRef}
-                className="hero-sub text-lg md:text-xl font-normal italic text-[var(--color-text-secondary)] tracking-widest opacity-0"
-            >
-                Empowering Private On-Chain Identity on Solana.
-            </p>
+        <section className="h-screen flex flex-col items-center justify-center bg-transparent px-4 relative overflow-hidden">
 
-            <div className="absolute bottom-12 text-[var(--color-text-muted)] text-sm tracking-widest uppercase">
+
+            <div className="relative z-10 flex flex-col items-center">
+                <h1
+                    ref={titleRef}
+                    className="hero-title text-6xl md:text-8xl lg:text-9xl font-normal tracking-tighter text-text-primary mb-4 text-center"
+                >
+                    Solstice Protocol
+                </h1>
+                <p
+                    ref={subRef}
+                    className="hero-sub text-lg md:text-xl font-normal italic text-text-secondary tracking-widest opacity-0"
+                >
+                    Empowering Private On-Chain Identity on Solana.
+                </p>
+            </div>
+
+            <div className="absolute bottom-12 text-text-muted text-sm tracking-widest uppercase z-10">
                 Scroll Down
             </div>
 

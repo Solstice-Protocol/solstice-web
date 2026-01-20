@@ -32,19 +32,19 @@ const Features = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="py-24 px-6 bg-[var(--color-bg-primary)] border-t border-[var(--color-border)]">
+        <section ref={sectionRef} className="py-32 px-6 bg-transparent">
             <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl font-normal mb-12 italic text-[var(--color-text-primary)]">
+                <h2 className="text-3xl font-normal mb-12 italic text-text-primary">
                     Protocol Features
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {features.map((f, i) => (
-                        <div key={i} className="feature-card opacity-0 border border-[var(--color-border)] p-6 hover:border-[var(--color-text-primary)] transition-colors duration-500">
-                            <h3 className="text-xl mb-4 font-normal text-[var(--color-text-primary)] font-serif">
+                        <div key={i} className="feature-card opacity-0 p-6 hover:bg-secondary/30 transition-colors duration-500 rounded-lg backdrop-blur-sm border border-white/5">
+                            <h3 className="text-xl mb-4 font-normal text-text-primary font-serif">
                                 {f.title}
                             </h3>
-                            <p className="text-[var(--color-text-secondary)] font-serif leading-relaxed">
+                            <p className="text-text-secondary font-serif leading-relaxed">
                                 {f.desc}
                             </p>
                         </div>
