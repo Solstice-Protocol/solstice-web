@@ -1,17 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const Navigation = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 100);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId);
@@ -30,72 +20,64 @@ const Navigation = () => {
 
     return (
         <>
-            <nav
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-4' : 'py-6'
-                    }`}
-            >
-                <div className={`max-w-7xl mx-auto px-6 transition-all duration-500 ${isScrolled ? 'bg-[var(--color-bg-primary)]/80 backdrop-blur-xl rounded-full border border-[var(--color-border)] mx-4 px-4' : ''
-                    }`}>
-                    <div className={`flex items-center justify-between ${isScrolled ? 'py-3' : 'py-0'}`}>
-                        {/* Logo */}
-                        <div className="flex items-center gap-3">
-                            <div className="relative w-10 h-10">
-                                <div className="absolute inset-0 gradient-bg rounded-xl opacity-80" />
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" fill="white" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <span className="text-xl font-bold font-[var(--font-heading)] tracking-tight">
-                                Solstice
-                            </span>
-                        </div>
+            <nav className="fixed top-0 right-0 z-50 p-6 flex justify-end items-start pointer-events-none">
+                <div className="pointer-events-auto flex items-center gap-4 bg-primary/10 backdrop-blur-md border border-white/5 rounded-full px-5 py-2">
+                    <a
+                        href="/documentation"
+                        className="hidden sm:block text-sm font-medium text-[var(--color-text-secondary)] hover:text-white transition-colors relative group"
+                    >
+                        Documentation
+                        <span className="absolute bottom-[-4px] left-0 right-0 h-px bg-[var(--color-primary)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    </a>
 
-                        {/* Desktop Nav Links */}
-                        <div className="hidden md:flex items-center gap-1">
-                            {navLinks.map((link) => (
-                                <button
-                                    key={link.id}
-                                    onClick={() => scrollToSection(link.id)}
-                                    className="relative px-5 py-2.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-white transition-colors duration-300 group"
-                                >
-                                    {link.label}
-                                    <span className="absolute bottom-1 left-5 right-5 h-px bg-[var(--color-primary)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-                                </button>
-                            ))}
-                        </div>
-
-                        {/* CTA Buttons */}
-                        <div className="flex items-center gap-3">
-                            <a
-                                href="#docs"
-                                className="hidden sm:block text-sm font-medium text-[var(--color-text-secondary)] hover:text-white transition-colors px-4 py-2"
-                            >
-                                Docs
-                            </a>
-                            <a
-                                href="#launch"
-                                className="gradient-bg px-6 py-2.5 rounded-full text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:scale-105 transition-all duration-300"
-                            >
-                                Launch App
-                            </a>
-
-                            {/* Mobile Menu Button */}
-                            <button
-                                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                className="md:hidden p-2 text-white hover:bg-white/5 rounded-lg transition-colors"
-                            >
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    {isMobileMenuOpen ? (
-                                        <path d="M18 6L6 18M6 6l12 12" />
-                                    ) : (
-                                        <path d="M4 6h16M4 12h16M4 18h16" />
-                                    )}
-                                </svg>
-                            </button>
-                        </div>
+                    <div className="hidden sm:flex items-center gap-3 border-l border-white/10 pl-4">
+                        <a
+                            href="https://github.com/Solstice-Protocol"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[var(--color-text-secondary)] hover:text-white transition-colors"
+                            aria-label="GitHub"
+                        >
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </a>
+                        <a
+                            href="https://www.npmjs.com/package/@solsticeprotocol/sdk"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[var(--color-text-secondary)] hover:text-white transition-colors"
+                            aria-label="NPM"
+                        >
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M6 22h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2z"></path>
+                                <path d="M6 12h5v4h2v-4h5"></path>
+                                <path d="M6 8h12"></path>
+                                <path d="M6 16h12"></path>
+                            </svg>
+                        </a>
                     </div>
+
+                    <a
+                        href="#launch"
+                        className="gradient-bg px-5 py-2 rounded-full text-xs font-semibold text-white shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:scale-105 transition-all duration-300 ml-2"
+                    >
+                        Launch App
+                    </a>
+
+                    {/* Mobile Menu Button */}
+                    <button
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="md:hidden p-2 text-white hover:bg-white/5 rounded-lg transition-colors border-l border-white/10 ml-1"
+                    >
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            {isMobileMenuOpen ? (
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            ) : (
+                                <path d="M4 6h16M4 12h16M4 18h16" />
+                            )}
+                        </svg>
+                    </button>
                 </div>
             </nav>
 

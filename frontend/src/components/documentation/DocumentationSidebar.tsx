@@ -69,7 +69,9 @@ export function DocumentationSidebar({ isOpen, onClose }: DocumentationSidebarPr
           {/* Header */}
           <div className="flex items-center justify-between p-8 pb-4">
             <div>
-              <h2 className="text-sm font-light tracking-widest text-text-primary uppercase opacity-90">Solstice Protocol</h2>
+              <Link to="/" className="block">
+                <h2 className="text-sm font-light tracking-widest text-text-primary uppercase opacity-90 hover:opacity-100 transition-opacity">Solstice Protocol</h2>
+              </Link>
               <div className="flex items-center gap-2 mt-1">
                 <span className="text-[10px] text-text-muted uppercase tracking-widest font-light">Docs v1.1.1</span>
               </div>

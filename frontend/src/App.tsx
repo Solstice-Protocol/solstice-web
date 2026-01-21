@@ -19,12 +19,14 @@ import { ConfigurationPage } from './pages/documentation/ConfigurationPage';
 import { ErrorHandlingPage } from './pages/documentation/ErrorHandlingPage';
 import { SecurityPage } from './pages/documentation/SecurityPage';
 import { PerformancePage } from './pages/documentation/PerformancePage';
+import Navigation from './components/Navigation';
 import './index.css';
 
 function HomePage() {
   return (
     <div className="min-h-screen bg-primary text-text-primary font-serif selection:bg-vintage-grape-700 selection:text-stone-brown-50 relative">
       <Background3D />
+      <Navigation />
       <main className="relative z-10">
         <Hero />
         <HowItWorks />
@@ -47,7 +49,7 @@ function App() {
       <Routes>
         {/* Home Route */}
         <Route path="/" element={<HomePage />} />
-        
+
         {/* Documentation Routes */}
         <Route path="/documentation" element={<DocumentationLayout />}>
           <Route index element={<OverviewPage />} />

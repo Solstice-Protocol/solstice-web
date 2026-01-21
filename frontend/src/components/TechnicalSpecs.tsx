@@ -55,7 +55,7 @@ const TechnicalSpecs = () => {
                 </div>
 
                 <div className="mt-8 text-center text-xs text-text-muted font-serif uppercase tracking-widest">
-                    * Benchmarked on Solana Mainnet-Beta
+                    * Benchmarked on Solana Devnet
                 </div>
             </div>
         </section>
