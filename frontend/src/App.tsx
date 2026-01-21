@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Hero from './components/Hero';
 import HowItWorks from './components/HowItWorks';
 import Features from './components/Features';
@@ -7,9 +8,20 @@ import Footer from './components/Footer';
 import Background3D from './components/Background3D';
 import DeveloperSDK from './components/DeveloperSDK';
 import Trust from './components/Trust';
+import { DocumentationLayout } from './pages/documentation/DocumentationLayout';
+import { OverviewPage } from './pages/documentation/OverviewPage';
+import { InstallationPage } from './pages/documentation/InstallationPage';
+import { QuickStartPage } from './pages/documentation/QuickStartPage';
+import { ApiReferencePage } from './pages/documentation/ApiReferencePage';
+import { IntegrationGuidePage } from './pages/documentation/IntegrationGuidePage';
+import { ExamplesPage } from './pages/documentation/ExamplesPage';
+import { ConfigurationPage } from './pages/documentation/ConfigurationPage';
+import { ErrorHandlingPage } from './pages/documentation/ErrorHandlingPage';
+import { SecurityPage } from './pages/documentation/SecurityPage';
+import { PerformancePage } from './pages/documentation/PerformancePage';
 import './index.css';
 
-function App() {
+function HomePage() {
   return (
     <div className="min-h-screen bg-primary text-text-primary font-serif selection:bg-vintage-grape-700 selection:text-stone-brown-50 relative">
       <Background3D />
@@ -26,6 +38,31 @@ function App() {
         <Footer />
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* Home Route */}
+        <Route path="/" element={<HomePage />} />
+        
+        {/* Documentation Routes */}
+        <Route path="/documentation" element={<DocumentationLayout />}>
+          <Route index element={<OverviewPage />} />
+          <Route path="installation" element={<InstallationPage />} />
+          <Route path="quick-start" element={<QuickStartPage />} />
+          <Route path="api-reference" element={<ApiReferencePage />} />
+          <Route path="integration-guide" element={<IntegrationGuidePage />} />
+          <Route path="examples" element={<ExamplesPage />} />
+          <Route path="configuration" element={<ConfigurationPage />} />
+          <Route path="error-handling" element={<ErrorHandlingPage />} />
+          <Route path="security" element={<SecurityPage />} />
+          <Route path="performance" element={<PerformancePage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -7,13 +7,12 @@ import HowItWorks from './HowItWorks';
 import Features from './Features';
 import UseCases from './UseCases';
 import Footer from './Footer';
-import TechnicalSpecs from './TechnicalSpecs';
 import DeveloperSDK from './DeveloperSDK';
 import Trust from './Trust';
 import { ProtocolNetwork, WAYPOINTS } from './Background3D';
 import DataStream from './DataStream';
 
-const SECTIONS = [Hero, HowItWorks, Features, TechnicalSpecs, DeveloperSDK, UseCases, Trust, Footer];
+const SECTIONS = [Hero, HowItWorks, Features, DeveloperSDK, UseCases, Trust, Footer];
 
 const CameraController = ({ targetIndex }: { targetIndex: number }) => {
     const { camera } = useThree();
