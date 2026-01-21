@@ -71,7 +71,7 @@ const Experience = () => {
             <DataStream target={WAYPOINTS[index]} />
 
             {/* Render "Station" markers at each Waypoint in 3D space */}
-            {WAYPOINTS.map((pos, i) => (
+            {WAYPOINTS.map((pos: THREE.Vector3, i: number) => (
                 <group key={i} position={pos}>
                     {/* Glowing Core */}
                     <mesh>
@@ -101,8 +101,8 @@ const Experience = () => {
                     <div
                         key={i}
                         className={`absolute inset-0 flex items-center justify-center transition-all duration-1000 ease-in-out ${i === index
-                                ? 'opacity-100 scale-100 pointer-events-auto blur-none'
-                                : 'opacity-0 scale-95 pointer-events-none blur-sm'
+                            ? 'opacity-100 scale-100 pointer-events-auto blur-none'
+                            : 'opacity-0 scale-95 pointer-events-none blur-sm'
                             }`}
                     >
                         {/* Centered Container for Text */}
@@ -124,8 +124,8 @@ const Experience = () => {
                             key={i}
                             onClick={() => setIndex(i)}
                             className={`w-3 h-3 rounded-full border transition-all duration-300 ${i === index
-                                    ? 'bg-accent-grape border-accent-grape scale-150'
-                                    : 'bg-transparent border-white/30 hover:bg-white/50'
+                                ? 'bg-accent-grape border-accent-grape scale-150'
+                                : 'bg-transparent border-white/30 hover:bg-white/50'
                                 }`}
                             aria-label={`Go to section ${i + 1}`}
                         />

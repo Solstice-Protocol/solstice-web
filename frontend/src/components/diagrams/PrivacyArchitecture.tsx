@@ -2,32 +2,78 @@ import { useRef, useEffect } from 'react';
 import anime from 'animejs/lib/anime.es.js';
 
 const PrivacyArchitecture = () => {
+    // Refs for animation groups
     const svgRef = useRef<SVGSVGElement>(null);
+    const zonesRef = useRef<SVGGElement>(null);
+    const nodesRef = useRef<SVGGElement>(null);
+    const connectionsRef = useRef<SVGGElement>(null);
 
     useEffect(() => {
-        const tl = anime.timeline({
-            easing: 'easeInOutSine',
-            loop: true
-        });
+        // --- 1. Lines Entry (Zones + Paths) ---
+        // Drawing the environment first
+        const elements = [
+            zonesRef.current?.querySelectorAll('rect'),
+            connectionsRef.current?.querySelectorAll('path')
+        ].filter(el => el !== undefined && el !== null);
 
-        // Data Flow Animation (Lines)
-        tl.add({
-            targets: '.connection-path',
-            strokeDashoffset: [anime.setDashoffset, 0],
-            duration: 2500,
-            delay: anime.stagger(500)
-        });
+        // Ensure initial state
+        if (elements.length > 0) {
+            anime.set(elements, { strokeDashoffset: anime.setDashoffset });
 
-        // Pulse Animation (Nodes) - Runs concurrently
+            anime({
+                targets: elements,
+                strokeDashoffset: 0,
+                easing: 'easeInOutSine',
+                duration: 4000,
+                delay: anime.stagger(100),
+                loop: false
+            });
+        }
+
+
+        // --- 2. Nodes Staggered Entry ---
+        // Populating the environment
         anime({
-            targets: '.node-box',
-            scale: [1, 1.05, 1],
-            borderColor: ['#444', '#804dee', '#444'], // Glow purple
+            targets: nodesRef.current?.querySelectorAll('.anim-target') || [],
+            opacity: [0, 1],
+            scale: [0.9, 1],
+            delay: anime.stagger(150, { start: 500 }),
+            easing: 'easeOutQuad',
+            duration: 800
+        });
+
+        // --- 3. Organic Floating Loop ---
+        // Keeping it alive
+        const animateFloating = () => {
+            const nodes = nodesRef.current?.querySelectorAll('.anim-target');
+            if (nodes) {
+                Array.from(nodes).forEach((node) => {
+                    anime({
+                        targets: node,
+                        translateY: [
+                            { value: -4 + Math.random() * 8, duration: 4000 + Math.random() * 2000 },
+                            { value: 0, duration: 4000 + Math.random() * 2000 }
+                        ],
+                        easing: 'easeInOutSine',
+                        loop: true,
+                        direction: 'alternate'
+                    });
+                });
+            }
+        };
+        setTimeout(animateFloating, 1500);
+
+        // --- 4. Pulse Animation (Subtle) ---
+        // Replaces the old rigid pulse with a softer glow effect
+        anime({
+            targets: '.node-active-border',
+            opacity: [0.2, 0.6],
+            easing: 'easeInOutSine',
             duration: 2000,
             loop: true,
-            easing: 'easeInOutQuad',
-            delay: anime.stagger(200)
+            direction: 'alternate'
         });
+
     }, []);
 
     return (
@@ -35,75 +81,96 @@ const PrivacyArchitecture = () => {
             <svg ref={svgRef} viewBox="0 0 800 500" className="w-full h-full">
 
                 {/* --- ZONES --- */}
-                {/* Privacy Zone (Left) */}
-                <rect x="20" y="20" width="300" height="460" fill="transparent" stroke="#444" strokeWidth="1" strokeDasharray="4 4" rx="8" />
-                <text x="40" y="50" fill="#888" className="tracking-widest uppercase text-[10px]">Privacy Zone (Client)</text>
+                <g ref={zonesRef}>
+                    {/* Privacy Zone (Left) */}
+                    <rect x="20" y="20" width="300" height="460" fill="transparent" stroke="#444" strokeWidth="1" strokeDasharray="4 4" rx="8" />
+                    <text x="40" y="45" fill="#a1a1aa" className="tracking-widest uppercase text-xs font-bold opacity-0 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>Privacy Zone (Client)</text>
 
-                {/* Public Zone (Center) */}
-                <rect x="340" y="20" width="200" height="460" fill="transparent" stroke="#444" strokeWidth="1" strokeDasharray="4 4" rx="8" />
-                <text x="360" y="50" fill="#888" className="tracking-widest uppercase text-[10px]">Public Zone (Proof)</text>
+                    {/* Public Zone (Center) */}
+                    <rect x="340" y="20" width="200" height="460" fill="transparent" stroke="#444" strokeWidth="1" strokeDasharray="4 4" rx="8" />
+                    <text x="360" y="45" fill="#a1a1aa" className="tracking-widest uppercase text-xs font-bold opacity-0 animate-fade-in" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>Public Zone (Proof)</text>
 
-                {/* Storage Zone (Right) */}
-                <rect x="560" y="20" width="220" height="460" fill="transparent" stroke="#444" strokeWidth="1" strokeDasharray="4 4" rx="8" />
-                <text x="580" y="50" fill="#888" className="tracking-widest uppercase text-[10px]">Storage / Chain</text>
+                    {/* Storage Zone (Right) */}
+                    <rect x="560" y="20" width="220" height="460" fill="transparent" stroke="#444" strokeWidth="1" strokeDasharray="4 4" rx="8" />
+                    <text x="580" y="45" fill="#a1a1aa" className="tracking-widest uppercase text-xs font-bold opacity-0 animate-fade-in" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>Storage / Chain</text>
+                </g>
 
                 {/* --- NODES --- */}
+                <g ref={nodesRef}>
 
-                {/* 1. mAadhaar Source */}
-                <g transform="translate(50, 200)">
-                    <rect width="240" height="100" fill="#1e1e1e" stroke="#666" rx="4" className="node-box" />
-                    <text x="120" y="30" fill="#fff" textAnchor="middle" fontWeight="bold">mAadhaar QR Data</text>
-                    <text x="120" y="55" fill="#888" textAnchor="middle">Name: John Doe</text>
-                    <text x="120" y="75" fill="#888" textAnchor="middle">DOB: 1990-05-15</text>
-                </g>
+                    {/* 1. mAadhaar Source */}
+                    <g transform="translate(50, 200)">
+                        <g className="anim-target">
+                            <rect width="240" height="100" fill="#1e1e1e" stroke="#666" rx="4" className="node-box" />
+                            <text x="120" y="30" fill="#fff" textAnchor="middle" fontWeight="bold" className="text-sm">mAadhaar QR Data</text>
+                            <text x="120" y="55" fill="#9ca3af" textAnchor="middle" className="text-xs">Name: John Doe</text>
+                            <text x="120" y="75" fill="#9ca3af" textAnchor="middle" className="text-xs">DOB: 1990-05-15</text>
+                        </g>
+                    </g>
 
-                {/* 2. Private Circuit Inputs (Top Left) */}
-                <g transform="translate(100, 80)">
-                    <rect width="200" height="80" fill="#1e1e1e" stroke="#666" rx="4" />
-                    <text x="100" y="25" fill="#aaa" textAnchor="middle" className="text-[10px] uppercase">Circuit Inputs</text>
-                    <text x="100" y="50" fill="#fff" textAnchor="middle">age: 33</text>
-                    <text x="100" y="65" fill="#fff" textAnchor="middle">nationality: IN</text>
-                </g>
+                    {/* 2. Private Circuit Inputs (Top Left) */}
+                    <g transform="translate(100, 80)">
+                        <g className="anim-target">
+                            <rect width="200" height="80" fill="#1e1e1e" stroke="#666" rx="4" />
+                            <text x="100" y="25" fill="#a1a1aa" textAnchor="middle" className="text-xs uppercase font-bold">Circuit Inputs</text>
+                            <text x="100" y="50" fill="#fff" textAnchor="middle" className="text-sm">age: 33</text>
+                            <text x="100" y="68" fill="#fff" textAnchor="middle" className="text-sm">nationality: IN</text>
+                        </g>
+                    </g>
 
-                {/* 3. ZK Proof (Center Top) */}
-                <g transform="translate(360, 80)">
-                    <rect width="160" height="100" fill="#2a2a2a" stroke="#fff" strokeWidth="1" rx="4" />
-                    <text x="80" y="30" fill="#fff" textAnchor="middle" fontWeight="bold">ZK Proof</text>
-                    <text x="80" y="55" fill="#aaa" textAnchor="middle">256 bytes</text>
-                    <text x="80" y="75" fill="#aaa" textAnchor="middle">Groth16</text>
-                </g>
+                    {/* 3. ZK Proof (Center Top) */}
+                    <g transform="translate(360, 80)">
+                        <g className="anim-target">
+                            <rect width="160" height="100" fill="#2a2a2a" stroke="#fff" strokeWidth="1" rx="4" />
+                            <text x="80" y="30" fill="#fff" textAnchor="middle" fontWeight="bold" className="text-sm">ZK Proof</text>
+                            <text x="80" y="55" fill="#9ca3af" textAnchor="middle" className="text-xs">256 bytes</text>
+                            <text x="80" y="75" fill="#9ca3af" textAnchor="middle" className="text-xs">Groth16</text>
+                        </g>
+                    </g>
 
-                {/* 4. Identity Commitment (Center Mid) */}
-                <g transform="translate(360, 240)">
-                    <rect width="160" height="80" fill="#2a2a2a" stroke="#aaa" rx="4" />
-                    <text x="80" y="30" fill="#fff" textAnchor="middle" fontWeight="bold">Commitment</text>
-                    <text x="80" y="55" fill="#aaa" textAnchor="middle">Poseidon(Hash)</text>
-                </g>
+                    {/* 4. Identity Commitment (Center Mid) */}
+                    <g transform="translate(360, 240)">
+                        <g className="anim-target">
+                            <rect width="160" height="80" fill="#2a2a2a" stroke="#aaa" rx="4" />
+                            <text x="80" y="30" fill="#fff" textAnchor="middle" fontWeight="bold" className="text-sm">Commitment</text>
+                            <text x="80" y="55" fill="#9ca3af" textAnchor="middle" className="text-xs">Poseidon(Hash)</text>
+                        </g>
+                    </g>
 
-                {/* 5. Merkle Root (Center Low) */}
-                <g transform="translate(360, 380)">
-                    <rect width="160" height="60" fill="#2a2a2a" stroke="#aaa" rx="4" />
-                    <text x="80" y="35" fill="#fff" textAnchor="middle" fontWeight="bold">Merkle Root</text>
-                </g>
+                    {/* 5. Merkle Root (Center Low) */}
+                    <g transform="translate(360, 380)">
+                        <g className="anim-target">
+                            <rect width="160" height="60" fill="#2a2a2a" stroke="#aaa" rx="4" />
+                            <text x="80" y="35" fill="#fff" textAnchor="middle" fontWeight="bold" className="text-sm">Merkle Root</text>
+                        </g>
+                    </g>
 
-                {/* 6. Storage Nodes (Right) */}
-                <g transform="translate(600, 80)">
-                    <rect width="140" height="60" fill="#111" stroke="#444" rx="4" />
-                    <text x="70" y="35" fill="#888" textAnchor="middle">IndexedDB</text>
+                    {/* 6. Storage Nodes (Right) */}
+                    <g transform="translate(600, 80)">
+                        <g className="anim-target">
+                            <rect width="140" height="60" fill="#111" stroke="#444" rx="4" />
+                            <text x="70" y="35" fill="#9ca3af" textAnchor="middle" className="text-xs font-medium">IndexedDB</text>
+                        </g>
+                    </g>
+                    <g transform="translate(600, 240)">
+                        <g className="anim-target">
+                            <rect width="140" height="60" fill="#111" stroke="#444" rx="4" />
+                            <text x="70" y="35" fill="#9ca3af" textAnchor="middle" className="text-xs font-medium">Identities Table</text>
+                        </g>
+                    </g>
+                    <g transform="translate(600, 340)">
+                        <g className="anim-target">
+                            {/* Glow Border for PDA */}
+                            <rect width="140" height="100" fill="transparent" stroke="#c084fc" strokeWidth="4" rx="4" className="node-active-border opacity-0 blurred" style={{ filter: 'blur(8px)' }} />
+                            <rect width="140" height="100" fill="#1a1a1a" stroke="#c084fc" strokeWidth="2" rx="4" />
+                            <text x="70" y="40" fill="#c084fc" textAnchor="middle" fontWeight="bold" className="text-sm">Identity PDA</text>
+                            <text x="70" y="65" fill="#9ca3af" textAnchor="middle" className="text-xs">(Solana)</text>
+                        </g>
+                    </g>
                 </g>
-                <g transform="translate(600, 240)">
-                    <rect width="140" height="60" fill="#111" stroke="#444" rx="4" />
-                    <text x="70" y="35" fill="#888" textAnchor="middle">Identities Table</text>
-                </g>
-                <g transform="translate(600, 340)">
-                    <rect width="140" height="100" fill="#1a1a1a" stroke="#accent-grape" strokeWidth="2" rx="4" className="stroke-accent-grape" />
-                    <text x="70" y="45" fill="#c084fc" textAnchor="middle" fontWeight="bold">Identity PDA</text>
-                    <text x="70" y="70" fill="#666" textAnchor="middle">(Solana)</text>
-                </g>
-
 
                 {/* --- CONNECTIONS (Lines) --- */}
-                <g fill="none" stroke="#666" strokeWidth="1.5">
+                <g fill="none" stroke="#666" strokeWidth="1.5" ref={connectionsRef}>
                     {/* QR -> Inputs */}
                     <path d="M 170 200 L 170 180 L 200 160" markerEnd="url(#arrow)" />
                     {/* Inputs -> Proof */}
@@ -130,6 +197,12 @@ const PrivacyArchitecture = () => {
                 </defs>
 
             </svg>
+            <style>{`
+                @keyframes fade-in {
+                    from { opacity: 0; transform: translateY(5px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+            `}</style>
         </div>
     );
 };

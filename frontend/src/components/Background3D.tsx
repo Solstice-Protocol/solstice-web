@@ -1,12 +1,24 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial, Line } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.esm'
-import { useState, useRef, Suspense, useMemo } from 'react';
+import { useRef, Suspense, useMemo } from 'react';
 import * as THREE from 'three';
 
-const ProtocolNetwork = (props: any) => {
-    const groupRef = useRef<any>();
-    const mouseGroupRef = useRef<any>();
+// Define Waypoints for the camera to visit (One per section)
+export const WAYPOINTS = [
+    new THREE.Vector3(0, 0, 0),          // Hero
+    new THREE.Vector3(5, 2, -10),        // HowItWorks
+    new THREE.Vector3(-5, -2, -20),      // Features
+    new THREE.Vector3(0, 5, -30),        // TechnicalSpecs
+    new THREE.Vector3(8, -5, -40),       // DeveloperSDK
+    new THREE.Vector3(-8, 5, -50),       // UseCases
+    new THREE.Vector3(0, 0, -60),        // Trust
+    new THREE.Vector3(0, -10, -70),      // Footer
+];
+
+export const ProtocolNetwork = (props: any) => {
+    const groupRef = useRef<any>(null);
+    const mouseGroupRef = useRef<any>(null);
 
     // Generate sphere points
     const points = useMemo(() => {
