@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import anime from 'animejs/lib/anime.es.js';
+import IntegrationFlow from './diagrams/IntegrationFlow';
 
 const DeveloperSDK = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -54,6 +55,10 @@ const DeveloperSDK = () => {
                                 <p className="text-text-muted">Connect connection to Solstice Network</p>
                             </div>
                         </div>
+                    </div>
+
+                    <div className="mt-12 w-full">
+                        <IntegrationFlow />
                     </div>
                 </div>
 

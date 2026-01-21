@@ -2,12 +2,12 @@ import { useEffect, useRef } from 'react';
 import anime from 'animejs/lib/anime.es.js';
 
 const specs = [
-    { label: "Hash Function", value: "Poseidon (Optimized for ZK)" },
-    { label: "Proof System", value: "Groth16 (Malleability Resistant)" },
-    { label: "State Compression", value: "Light Protocol (Merkle Trees)" },
-    { label: "Verification Cost", value: "~200,000 Compute Units" },
-    { label: "Storage Cost", value: "0.000002 SOL (Compressed)" },
-    { label: "Client Runtime", value: "WASM (WebAssembly)" }
+    { label: "Proving System", value: "Groth16 (snarkjs)" },
+    { label: "Curve", value: "BN254 (alt_bn128)" },
+    { label: "State Compression", value: "Light Protocol v0.3+" },
+    { label: "Merkle Tree Depth", value: "26 (67M Capacity)" },
+    { label: "Compression Ratio", value: "~5000x Reduction" },
+    { label: "Verification Cost", value: "< 0.00001 SOL" }
 ];
 
 const TechnicalSpecs = () => {

@@ -2,9 +2,9 @@ import { useEffect, useRef } from 'react';
 import anime from 'animejs/lib/anime.es.js';
 
 const features = [
-    { title: "I. Client-Side Generation", desc: "Proofs generated locally." },
-    { title: "II. Light Protocol", desc: "5000x state compression." },
-    { title: "III. Groth16 Verifier", desc: "Native BPF verification." }
+    { title: "I. Client-Side Generation", desc: "Proofs generated locally. PII never leaves device." },
+    { title: "II. Light Protocol", desc: "5000x state compression via Merkle Trees." },
+    { title: "III. Groth16 Verifier", desc: "Native BPF verification. <1ms finality." }
 ];
 
 const Features = () => {

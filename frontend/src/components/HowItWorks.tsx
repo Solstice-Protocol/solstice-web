@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import anime from 'animejs/lib/anime.es.js';
+import PrivacyArchitecture from './diagrams/PrivacyArchitecture';
 
 const HowItWorks = () => {
     useEffect(() => {
@@ -48,23 +49,8 @@ const HowItWorks = () => {
                     </div>
 
                     {/* Animated Diagram Area */}
-                    <div className="relative h-80 w-full bg-secondary/30 backdrop-blur-sm flex items-center justify-center p-8">
-                        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 300">
-                            <line className="connection-line" x1="100" y1="150" x2="300" y2="150" stroke="#444" strokeWidth="2" fill="none" />
-                            <circle className="connection-line" cx="200" cy="150" r="40" stroke="#444" strokeWidth="2" fill="none" />
-                        </svg>
-
-                        <div className="relative w-full flex justify-between px-12">
-                            <div className="data-node w-12 h-12 bg-tertiary border border-text-muted flex items-center justify-center text-xs text-text-secondary rounded-full z-10">
-                                User
-                            </div>
-                            <div className="data-node w-16 h-16 bg-tertiary border border-text-muted flex items-center justify-center text-xs text-text-primary rounded-full z-10 shadow-2xl">
-                                ZK
-                            </div>
-                            <div className="data-node w-12 h-12 bg-tertiary border border-text-muted flex items-center justify-center text-xs text-text-secondary rounded-full z-10">
-                                Chain
-                            </div>
-                        </div>
+                    <div className="w-full">
+                        <PrivacyArchitecture />
                     </div>
                 </div>
             </div>
