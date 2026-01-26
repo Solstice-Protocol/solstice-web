@@ -360,7 +360,7 @@ export function IdentityVerification() {
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100 mb-2">📦 Circuit Files</h4>
+                    <h4 className="text-lg font-semibold text-gray-100 mb-2"> Circuit Files</h4>
                     <p className="text-gray-300 text-sm">
                       Place circuit files in the public directory (/public/circuits) so they can 
                       be loaded at runtime. Ensure the circuitsPath matches your public directory structure.

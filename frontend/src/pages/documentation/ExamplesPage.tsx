@@ -221,7 +221,7 @@ export function DeFiAgeVerification() {
         {/* Privacy Notice */}
         <div className="mt-6 p-4 bg-gray-700/50 rounded-lg">
           <p className="text-gray-400 text-xs">
-            🔒 <strong>Privacy Guaranteed:</strong> Your personal information is never revealed. 
+             <strong>Privacy Guaranteed:</strong> Your personal information is never revealed. 
             The zero-knowledge proof only confirms you meet the age requirement without exposing 
             your date of birth or other identity details.
           </p>
@@ -478,7 +478,7 @@ export function VotingSystem({ proposal }: { proposal: Proposal }) {
         {/* Privacy & Security Notice */}
         <div className="mt-6 p-4 bg-gray-700/50 rounded-lg">
           <p className="text-gray-400 text-xs">
-            🔒 <strong>Anonymous Voting:</strong> Your vote is completely anonymous. The system 
+             <strong>Anonymous Voting:</strong> Your vote is completely anonymous. The system 
             only knows that a unique, verified person voted, but cannot link the vote to your identity.
             <br /><br />
             🛡️ <strong>Sybil Resistance:</strong> The uniqueness proof ensures each person can 
@@ -826,7 +826,7 @@ export function GamingRegistration() {
         {/* Security Features */}
         <div className="mt-6 p-4 bg-gray-700/50 rounded-lg">
           <p className="text-gray-400 text-xs">
-            🔒 <strong>Privacy Protected:</strong> Your personal information is never stored or shared.
+             <strong>Privacy Protected:</strong> Your personal information is never stored or shared.
             <br /><br />
             🛡️ <strong>Anti-Cheat:</strong> Each person can only create one account, preventing 
             multi-accounting and ensuring fair play.
@@ -866,7 +866,7 @@ export function GamingRegistration() {
             <div className="grid gap-4 md:grid-cols-2">
               <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
                 <h3 className="text-lg font-semibold text-gray-100 mb-2">
-                  📦 Example Repository
+                   Example Repository
                 </h3>
                 <p className="text-gray-400 text-sm mb-4">
                   Complete working examples with full source code, tests, and deployment instructions.
