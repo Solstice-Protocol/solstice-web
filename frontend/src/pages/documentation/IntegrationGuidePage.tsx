@@ -903,7 +903,7 @@ KEYPAIR_PATH=./keypair.json`}
                 <h3 className="text-2xl font-semibold text-gray-100 mb-3">Node.js-Specific Considerations</h3>
                 <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6 space-y-4">
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100 mb-2">🔐 Key Management</h4>
+                    <h4 className="text-lg font-semibold text-gray-100 mb-2"> Key Management</h4>
                     <p className="text-gray-300 text-sm">
                       Never commit keypairs to version control. Use environment variables or secure 
                       key management services (AWS KMS, HashiCorp Vault) in production.

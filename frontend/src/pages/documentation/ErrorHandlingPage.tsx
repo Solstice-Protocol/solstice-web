@@ -651,7 +651,7 @@ try {
               {/* Issue 1 */}
               <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
                 <h3 className="text-lg font-semibold text-gray-100 mb-2">
-                  ❌ "Circuit files not found" Error
+                   "Circuit files not found" Error
                 </h3>
                 <p className="text-gray-300 mb-3">
                   <strong>Symptoms:</strong> ProofGenerationError with code PROOF_001
@@ -678,7 +678,7 @@ try {
               {/* Issue 2 */}
               <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
                 <h3 className="text-lg font-semibold text-gray-100 mb-2">
-                  ❌ "Insufficient SOL" Error
+                   "Insufficient SOL" Error
                 </h3>
                 <p className="text-gray-300 mb-3">
                   <strong>Symptoms:</strong> TransactionError with code TX_001
@@ -703,7 +703,7 @@ try {
               {/* Issue 3 */}
               <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
                 <h3 className="text-lg font-semibold text-gray-100 mb-2">
-                  ❌ Proof Generation Takes Too Long
+                   Proof Generation Takes Too Long
                 </h3>
                 <p className="text-gray-300 mb-3">
                   <strong>Symptoms:</strong> Proof generation exceeds 10 seconds or times out
@@ -731,7 +731,7 @@ try {
               {/* Issue 4 */}
               <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
                 <h3 className="text-lg font-semibold text-gray-100 mb-2">
-                  ❌ "Wallet not connected" Error
+                   "Wallet not connected" Error
                 </h3>
                 <p className="text-gray-300 mb-3">
                   <strong>Symptoms:</strong> WalletError with code WALLET_001
@@ -758,7 +758,7 @@ try {
               {/* Issue 5 */}
               <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
                 <h3 className="text-lg font-semibold text-gray-100 mb-2">
-                  ❌ Transaction Timeout
+                   Transaction Timeout
                 </h3>
                 <p className="text-gray-300 mb-3">
                   <strong>Symptoms:</strong> TransactionError with code TX_002
@@ -786,7 +786,7 @@ try {
               {/* Issue 6 */}
               <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
                 <h3 className="text-lg font-semibold text-gray-100 mb-2">
-                  ❌ Invalid QR Code
+                   Invalid QR Code
                 </h3>
                 <p className="text-gray-300 mb-3">
                   <strong>Symptoms:</strong> QRParseError with codes QR_001, QR_002, or QR_003

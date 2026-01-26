@@ -326,7 +326,7 @@ export function PerformancePage() {
               </p>
 
               <CodeBlock
-                code={`// ❌ Lazy loading (slower first proof)
+                code={`//  Lazy loading (slower first proof)
 const sdk = new SolsticeSDK({
   connection,
   wallet,
@@ -337,7 +337,7 @@ const sdk = new SolsticeSDK({
 // First proof: ~7 seconds (includes circuit loading)
 // Subsequent proofs: ~5 seconds
 
-// ✅ Preload circuits (faster first proof)
+//  Preload circuits (faster first proof)
 const sdk = new SolsticeSDK({
   connection,
   wallet,
@@ -421,7 +421,7 @@ worker.onmessage = (event) => {
               <CodeBlock
                 code={`import { Connection } from '@solana/web3.js';
 
-// ✅ Optimized connection configuration
+//  Optimized connection configuration
 const connection = new Connection(
   process.env.CUSTOM_RPC_URL || 'https://api.mainnet-beta.solana.com',
   {

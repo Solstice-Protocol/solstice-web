@@ -196,7 +196,7 @@ export function DeFiAgeVerification() {
             {verificationStatus === 'verified' && (
               <div className="mt-4 p-4 bg-green-900/30 border border-green-700 rounded-lg">
                 <p className="text-green-300 font-medium mb-2">
-                  ✅ Age verification successful!
+                   Age verification successful!
                 </p>
                 <p className="text-gray-400 text-sm">
                   Transaction: <code className="text-xs">{txSignature}</code>
@@ -206,14 +206,14 @@ export function DeFiAgeVerification() {
 
             {error && (
               <div className="mt-4 p-4 bg-red-900/30 border border-red-700 rounded-lg">
-                <p className="text-red-300 text-sm">❌ {error}</p>
+                <p className="text-red-300 text-sm"> {error}</p>
               </div>
             )}
           </>
         ) : (
           <div className="p-4 bg-green-900/30 border border-green-700 rounded-lg">
             <p className="text-green-300 font-medium">
-              ✅ You are already verified! You can now access all DeFi services.
+               You are already verified! You can now access all DeFi services.
             </p>
           </div>
         )}
@@ -457,14 +457,14 @@ export function VotingSystem({ proposal }: { proposal: Proposal }) {
 
             {error && (
               <div className="mt-4 p-4 bg-red-900/30 border border-red-700 rounded-lg">
-                <p className="text-red-300 text-sm">❌ {error}</p>
+                <p className="text-red-300 text-sm"> {error}</p>
               </div>
             )}
           </>
         ) : (
           <div className="p-6 bg-green-900/30 border border-green-700 rounded-lg">
             <p className="text-green-300 font-medium mb-2">
-              ✅ Your vote has been recorded!
+               Your vote has been recorded!
             </p>
             <p className="text-gray-400 text-sm">
               Nullifier: <code className="text-xs">{nullifierHash.slice(0, 16)}...</code>
@@ -763,7 +763,7 @@ export function GamingRegistration() {
 
             {error && (
               <div className="mt-4 p-4 bg-red-900/30 border border-red-700 rounded-lg">
-                <p className="text-red-300 text-sm">❌ {error}</p>
+                <p className="text-red-300 text-sm"> {error}</p>
               </div>
             )}
           </>
@@ -785,7 +785,7 @@ export function GamingRegistration() {
           <div className="space-y-4">
             <div className="p-6 bg-green-900/30 border border-green-700 rounded-lg">
               <p className="text-green-300 font-bold text-xl mb-4">
-                ✅ Registration Complete!
+                 Registration Complete!
               </p>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center gap-2">
@@ -831,7 +831,7 @@ export function GamingRegistration() {
             🛡️ <strong>Anti-Cheat:</strong> Each person can only create one account, preventing 
             multi-accounting and ensuring fair play.
             <br /><br />
-            ✅ <strong>Age Verified:</strong> Zero-knowledge proof confirms you're 21+ without 
+             <strong>Age Verified:</strong> Zero-knowledge proof confirms you're 21+ without 
             revealing your exact age or date of birth.
           </p>
         </div>
@@ -890,7 +890,7 @@ export function GamingRegistration() {
 
               <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
                 <h3 className="text-lg font-semibold text-gray-100 mb-2">
-                  📚 Tutorial Series
+                   Tutorial Series
                 </h3>
                 <p className="text-gray-400 text-sm mb-4">
                   Step-by-step video tutorials walking through each example implementation.

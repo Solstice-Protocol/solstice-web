@@ -324,12 +324,12 @@ export function SecurityPage() {
               </div>
 
               <CodeBlock
-                code={`// ❌ NEVER DO THIS - Hardcoded private key
+                code={`//  NEVER DO THIS - Hardcoded private key
 const keypair = Keypair.fromSecretKey(
   new Uint8Array([1, 2, 3, ...]) // INSECURE!
 );
 
-// ✅ CORRECT - Use wallet adapter (browser)
+//  CORRECT - Use wallet adapter (browser)
 import { useWallet } from '@solana/wallet-adapter-react';
 
 const { publicKey, signTransaction } = useWallet();
@@ -338,7 +338,7 @@ const sdk = new SolsticeSDK({
   wallet: { publicKey, signTransaction },
 });
 
-// ✅ CORRECT - Use environment variables (server)
+//  CORRECT - Use environment variables (server)
 import { Keypair } from '@solana/web3.js';
 
 const keypair = Keypair.fromSecretKey(
@@ -438,7 +438,7 @@ PRIVATE_KEY=  # Add your private key here`}
               </div>
 
               <CodeBlock
-                code={`// ✅ CORRECT - Process and discard immediately
+                code={`//  CORRECT - Process and discard immediately
 async function generateProof(qrData: string) {
   try {
     // Parse QR data (in memory only)
@@ -460,7 +460,7 @@ async function generateProof(qrData: string) {
   }
 }
 
-// ❌ NEVER DO THIS
+//  NEVER DO THIS
 async function badExample(qrData: string) {
   // INSECURE - Storing in database
   await database.save({ qrData });
@@ -494,7 +494,7 @@ async function badExample(qrData: string) {
               </div>
 
               <CodeBlock
-                code={`// ✅ Safe to store proof data
+                code={`//  Safe to store proof data
 interface StoredVerification {
   userId: string;
   proofType: 'age' | 'nationality' | 'uniqueness';
@@ -576,7 +576,7 @@ await database.verifications.insert({
               </p>
 
               <CodeBlock
-                code={`// ✅ CORRECT - Client-side proof generation
+                code={`//  CORRECT - Client-side proof generation
 // Frontend (React component)
 import { SolsticeSDK } from '@solsticeprotocol/sdk';
 
