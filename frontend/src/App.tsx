@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import Lenis from 'lenis';
 import Hero from './components/Hero';
 import HowItWorks from './components/HowItWorks';
 import Features from './components/Features';
@@ -22,6 +24,32 @@ import Navigation from './components/Navigation';
 import './index.css';
 
 function HomePage() {
+  // Initialize Lenis smooth scroll with heavy settings
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.6,        // Slower, heavier animation
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential ease-out
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 0.8,  // Reduce scroll speed for heavier feel
+      touchMultiplier: 1.5,
+      infinite: false,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Cleanup on unmount
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-primary text-text-primary font-serif selection:bg-vintage-grape-700 selection:text-stone-brown-50 relative">
       <Navigation />
@@ -67,3 +95,4 @@ function App() {
 }
 
 export default App;
+

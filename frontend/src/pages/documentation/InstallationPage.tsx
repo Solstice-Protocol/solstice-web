@@ -1,7 +1,6 @@
 import { Breadcrumb } from '../../components/documentation/Breadcrumb';
 import { CodeBlock } from '../../components/documentation/CodeBlock';
 import { ExternalLink } from '../../components/documentation/ExternalLink';
-import { CheckCircle, AlertCircle } from 'lucide-react';
 
 /**
  * InstallationPage Component
@@ -34,8 +33,8 @@ export function InstallationPage() {
         </p>
 
         <div className="space-y-3">
-          <div className="flex items-start gap-4 bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/[0.07] transition-colors">
-            <CheckCircle className="w-5 h-5 text-vintage-grape-400 flex-shrink-0 mt-1" />
+          <div className="flex items-start gap-4 p-5 border-l-2 border-white/10 bg-white/[0.02] hover:bg-white/[0.07] transition-colors">
+            
             <div>
               <div className="font-medium text-text-primary text-lg">Node.js 18.x or higher</div>
               <p className="text-text-muted text-sm mt-1 font-light">
@@ -44,8 +43,8 @@ export function InstallationPage() {
             </div>
           </div>
 
-          <div className="flex items-start gap-4 bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/[0.07] transition-colors">
-            <CheckCircle className="w-5 h-5 text-vintage-grape-400 flex-shrink-0 mt-1" />
+          <div className="flex items-start gap-4 p-5 border-l-2 border-white/10 bg-white/[0.02] hover:bg-white/[0.07] transition-colors">
+            
             <div>
               <div className="font-medium text-text-primary text-lg">npm 9.x or yarn 1.22.x</div>
               <p className="text-text-muted text-sm mt-1 font-light">
@@ -54,8 +53,8 @@ export function InstallationPage() {
             </div>
           </div>
 
-          <div className="flex items-start gap-4 bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/[0.07] transition-colors">
-            <CheckCircle className="w-5 h-5 text-vintage-grape-400 flex-shrink-0 mt-1" />
+          <div className="flex items-start gap-4 p-5 border-l-2 border-white/10 bg-white/[0.02] hover:bg-white/[0.07] transition-colors">
+            
             <div>
               <div className="font-medium text-text-primary text-lg">TypeScript 5.x (recommended)</div>
               <p className="text-text-muted text-sm mt-1 font-light">
@@ -65,8 +64,8 @@ export function InstallationPage() {
             </div>
           </div>
 
-          <div className="flex items-start gap-4 bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/[0.07] transition-colors">
-            <CheckCircle className="w-5 h-5 text-vintage-grape-400 flex-shrink-0 mt-1" />
+          <div className="flex items-start gap-4 p-5 border-l-2 border-white/10 bg-white/[0.02] hover:bg-white/[0.07] transition-colors">
+            
             <div>
               <div className="font-medium text-text-primary text-lg">Solana Wallet Adapter</div>
               <p className="text-text-muted text-sm mt-1 font-light">
@@ -76,9 +75,9 @@ export function InstallationPage() {
           </div>
         </div>
 
-        <div className="mt-8 bg-vintage-grape-900/20 border border-vintage-grape-700/30 rounded-xl p-6">
+        <div className="mt-8 p-5 border-l-2 border-vintage-grape-500/30 bg-white/[0.02]">
           <div className="flex items-start gap-4">
-            <AlertCircle className="w-5 h-5 text-vintage-grape-300 flex-shrink-0 mt-1" />
+            
             <div>
               <div className="font-medium text-vintage-grape-200 mb-2">Browser Compatibility</div>
               <p className="text-vintage-grape-100/80 text-sm font-light leading-relaxed">
@@ -181,7 +180,7 @@ VITE_DEBUG_MODE=false`}
         />
 
         <div className="mt-8 space-y-4">
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+          <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
             <h4 className="font-medium text-text-primary mb-2">VITE_SOLANA_RPC_URL</h4>
             <p className="text-text-secondary text-sm font-light">
               The RPC endpoint for connecting to the Solana network. Use devnet for development,
@@ -189,7 +188,7 @@ VITE_DEBUG_MODE=false`}
             </p>
           </div>
 
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+          <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
             <h4 className="font-medium text-text-primary mb-2">VITE_SOLANA_NETWORK</h4>
             <p className="text-text-secondary text-sm font-light">
               The network identifier: <code className="text-vintage-grape-300">devnet</code>, <code className="text-vintage-grape-300">testnet</code>,
@@ -197,7 +196,7 @@ VITE_DEBUG_MODE=false`}
             </p>
           </div>
 
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+          <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
             <h4 className="font-medium text-text-primary mb-2">VITE_SOLSTICE_PROGRAM_ID</h4>
             <p className="text-text-secondary text-sm font-light">
               The Solana program ID for the Solstice verification contract. Different IDs are used
@@ -205,7 +204,7 @@ VITE_DEBUG_MODE=false`}
             </p>
           </div>
 
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+          <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
             <h4 className="font-medium text-text-primary mb-2">VITE_CIRCUITS_PATH</h4>
             <p className="text-text-secondary text-sm font-light">
               Path to the circuit files directory. These files are required for proof generation
@@ -214,9 +213,9 @@ VITE_DEBUG_MODE=false`}
           </div>
         </div>
 
-        <div className="mt-8 bg-stone-brown-900/20 border border-stone-brown-700/30 rounded-xl p-6">
+        <div className="mt-8 p-5 border-l-2 border-vintage-grape-500/30 bg-white/[0.02]">
           <div className="flex items-start gap-4">
-            <AlertCircle className="w-5 h-5 text-stone-brown-400 flex-shrink-0 mt-1" />
+            
             <div>
               <div className="font-medium text-stone-brown-200 mb-2">Network Configuration</div>
               <p className="text-stone-brown-100/80 text-sm font-light">
@@ -282,7 +281,7 @@ VITE_DEBUG_MODE=false`}
           from your application's public directory.
         </p>
 
-        <div className="bg-white/5 border border-white/10 rounded-xl p-6 mb-6">
+        <div className="p-5 border-l-2 border-white/10 bg-white/[0.02] mb-6">
           <h3 className="text-lg font-medium text-text-primary mb-3">Download Circuit Files</h3>
           <p className="text-text-secondary font-light mb-4">
             Download the pre-compiled circuit files from the SDK repository:
@@ -292,7 +291,7 @@ VITE_DEBUG_MODE=false`}
           </ExternalLink>
         </div>
 
-        <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+        <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
           <h3 className="text-lg font-medium text-text-primary mb-3">Directory Structure</h3>
           <p className="text-text-secondary font-light mb-4">
             Place the circuit files in your public directory with the following structure:
@@ -323,7 +322,7 @@ VITE_DEBUG_MODE=false`}
         </p>
 
         <div className="space-y-6">
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+          <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
             <h3 className="text-lg font-medium text-text-primary mb-3">1. Check Package Installation</h3>
             <p className="text-text-secondary font-light mb-4">
               Verify the SDK is installed correctly:
@@ -338,7 +337,7 @@ VITE_DEBUG_MODE=false`}
             </p>
           </div>
 
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+          <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
             <h3 className="text-lg font-medium text-text-primary mb-3">2. Test Import</h3>
             <p className="text-text-secondary font-light mb-4">
               Create a test file to verify the SDK can be imported:
@@ -353,7 +352,7 @@ console.log('SDK version:', SolsticeSDK.version);`}
             />
           </div>
 
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+          <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
             <h3 className="text-lg font-medium text-text-primary mb-3">3. Verify Circuit Files</h3>
             <p className="text-text-secondary font-light mb-4">
               Ensure circuit files are accessible by checking your browser's network tab
@@ -369,7 +368,7 @@ console.log('SDK version:', SolsticeSDK.version);`}
             </ul>
           </div>
 
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+          <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
             <h3 className="text-lg font-medium text-text-primary mb-3">4. Run Development Server</h3>
             <p className="text-text-secondary font-light mb-4">
               Start your development server and check for any errors:
@@ -395,36 +394,36 @@ console.log('SDK version:', SolsticeSDK.version);`}
         </h2>
 
         <div className="space-y-4">
-          <div className="bg-red-900/10 border border-red-700/30 rounded-xl p-6">
-            <h4 className="font-medium text-red-200 mb-2">Module not found errors</h4>
-            <p className="text-red-100/80 text-sm mb-3">
+          <div className="p-5 border-l-2 border-vintage-grape-500/30 bg-white/[0.02]">
+            <h4 className="font-medium text-text-muted mb-2">Module not found errors</h4>
+            <p className="text-text-muted text-sm mb-3">
               If you see "Cannot find module '@solsticeprotocol/sdk'":
             </p>
-            <ul className="list-disc list-inside text-red-100/70 text-sm space-y-1 ml-4 font-light">
+            <ul className="list-disc list-inside text-text-muted text-sm space-y-1 ml-4 font-light">
               <li>Clear your node_modules and reinstall: <code className="text-white/80">rm -rf node_modules && npm install</code></li>
               <li>Ensure you're using Node.js 18 or higher</li>
               <li>Check that the package is listed in your package.json dependencies</li>
             </ul>
           </div>
 
-          <div className="bg-red-900/10 border border-red-700/30 rounded-xl p-6">
-            <h4 className="font-medium text-red-200 mb-2">Circuit files not loading</h4>
-            <p className="text-red-100/80 text-sm mb-3">
+          <div className="p-5 border-l-2 border-vintage-grape-500/30 bg-white/[0.02]">
+            <h4 className="font-medium text-text-muted mb-2">Circuit files not loading</h4>
+            <p className="text-text-muted text-sm mb-3">
               If circuit files fail to load (404 errors):
             </p>
-            <ul className="list-disc list-inside text-red-100/70 text-sm space-y-1 ml-4 font-light">
+            <ul className="list-disc list-inside text-text-muted text-sm space-y-1 ml-4 font-light">
               <li>Verify files are in the correct public/circuits directory</li>
               <li>Check that VITE_CIRCUITS_PATH environment variable is set correctly</li>
               <li>Ensure your build tool is configured to serve static files from public directory</li>
             </ul>
           </div>
 
-          <div className="bg-red-900/10 border border-red-700/30 rounded-xl p-6">
-            <h4 className="font-medium text-red-200 mb-2">TypeScript errors</h4>
-            <p className="text-red-100/80 text-sm mb-3">
+          <div className="p-5 border-l-2 border-vintage-grape-500/30 bg-white/[0.02]">
+            <h4 className="font-medium text-text-muted mb-2">TypeScript errors</h4>
+            <p className="text-text-muted text-sm mb-3">
               If you encounter TypeScript type errors:
             </p>
-            <ul className="list-disc list-inside text-red-100/70 text-sm space-y-1 ml-4 font-light">
+            <ul className="list-disc list-inside text-text-muted text-sm space-y-1 ml-4 font-light">
               <li>Ensure you're using TypeScript 5.x or higher</li>
               <li>Add <code className="text-white/80">"moduleResolution": "bundler"</code> to your tsconfig.json</li>
               <li>Install type definitions: <code className="text-white/80">npm install --save-dev @types/node</code></li>
@@ -446,7 +445,7 @@ console.log('SDK version:', SolsticeSDK.version);`}
         <div className="grid gap-4 md:grid-cols-2">
           <a
             href="/documentation/quick-start"
-            className="block bg-white/5 border border-white/10 hover:border-vintage-grape-500/50 rounded-xl p-6 transition-all duration-300 hover:bg-white/[0.08] group"
+            className="block bg-white/5 border border-white/10 hover:border-vintage-grape-500/50  p-6 transition-all duration-300 hover:bg-white/[0.08] group"
           >
             <h3 className="text-lg font-medium text-text-primary group-hover:text-vintage-grape-200 mb-2 transition-colors">
               Quick Start Guide
@@ -458,7 +457,7 @@ console.log('SDK version:', SolsticeSDK.version);`}
 
           <a
             href="/documentation/configuration"
-            className="block bg-white/5 border border-white/10 hover:border-vintage-grape-500/50 rounded-xl p-6 transition-all duration-300 hover:bg-white/[0.08] group"
+            className="block bg-white/5 border border-white/10 hover:border-vintage-grape-500/50  p-6 transition-all duration-300 hover:bg-white/[0.08] group"
           >
             <h3 className="text-lg font-medium text-text-primary group-hover:text-vintage-grape-200 mb-2 transition-colors">
               Configuration Guide

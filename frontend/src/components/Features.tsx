@@ -2,20 +2,20 @@ import { useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const features = [
-    { 
+    {
         number: "01",
-        title: "Client-Side Generation", 
-        desc: "Proofs generated locally. PII never leaves device." 
+        title: "Client-Side Generation",
+        desc: "Proofs generated locally. PII never leaves device."
     },
-    { 
+    {
         number: "02",
-        title: "Light Protocol", 
-        desc: "5000x state compression via Merkle Trees." 
+        title: "Light Protocol",
+        desc: "5000x state compression via Merkle Trees."
     },
-    { 
+    {
         number: "03",
-        title: "Groth16 Verifier", 
-        desc: "Native BPF verification. <1ms finality." 
+        title: "Groth16 Verifier",
+        desc: "Native BPF verification. <1ms finality."
     }
 ];
 
@@ -25,7 +25,7 @@ const Features = () => {
     return (
         <section id="features" ref={sectionRef} className="py-32 px-6 bg-transparent">
             <div className="max-w-6xl mx-auto">
-                <motion.h2 
+                <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -44,7 +44,7 @@ const Features = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: i * 0.1 }}
                             whileHover={{ y: -5 }}
-                            className="group relative p-8 rounded-2xl border border-white/10 bg-secondary/20 backdrop-blur-sm hover:border-accent-grape/50 transition-all duration-500"
+                            className="group relative p-8 rounded-2xl border border-white/5 bg-primary/60 backdrop-blur-sm hover:border-accent-grape/30 transition-all duration-500"
                         >
                             {/* Number */}
                             <div className="mb-6">

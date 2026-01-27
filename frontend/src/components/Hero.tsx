@@ -1,59 +1,103 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
-// Grid cube component with flip animation
-const GridCube = ({ delay }: { delay: number }) => {
-    const [isFlipped, setIsFlipped] = useState(false);
+// CSS 3D Cube that flips on hover - only the hovered cube flips
+const GridCube = ({
+    size,
+}: {
+    size: number;
+}) => {
+    const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay }}
-            onMouseEnter={() => setIsFlipped(true)}
-            onMouseLeave={() => setIsFlipped(false)}
-            className="relative w-full h-full"
-            style={{ perspective: '1000px' }}
+        <li
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className="inline-block"
+            style={{
+                perspective: '1000px',
+                width: `${size}px`,
+                height: `${size}px`,
+            }}
         >
-            <motion.div
-                animate={{ rotateY: isFlipped ? 180 : 0 }}
-                transition={{ duration: 0.6, ease: 'easeInOut' }}
-                className="relative w-full h-full"
-                style={{ transformStyle: 'preserve-3d' }}
+            <span
+                className="relative inline-block w-full h-full"
+                style={{
+                    transformStyle: 'preserve-3d',
+                    transformOrigin: '50% 0',
+                    transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                    transform: isHovered
+                        ? `rotateX(90deg) translateY(-${size * 0.55}px)`
+                        : 'rotateX(0deg)',
+                }}
             >
-                {/* Front face */}
+                {/* Front face - very subtle */}
                 <div
-                    className="absolute inset-0 border border-white/5 bg-secondary/20"
-                    style={{ backfaceVisibility: 'hidden' }}
+                    className="absolute inset-0"
+                    style={{
+                        backgroundColor: 'rgba(255, 255, 255, 0.015)',
+                        border: '1px solid rgba(255, 255, 255, 0.03)',
+                    }}
                 />
-                {/* Back face */}
+                {/* Bottom face (revealed on flip) */}
                 <div
-                    className="absolute inset-0 border border-accent-grape/30 bg-accent-grape/10"
-                    style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+                    className="absolute left-0 w-full"
+                    style={{
+                        top: '100%',
+                        height: '100%',
+                        backgroundColor: 'rgba(147, 132, 174, 0.5)',
+                        border: '1px solid rgba(147, 132, 174, 0.6)',
+                        boxShadow: '0 0 15px rgba(147, 132, 174, 0.4)',
+                        transform: 'rotateX(-90deg)',
+                        transformOrigin: '50% 0',
+                    }}
                 />
-            </motion.div>
-        </motion.div>
+            </span>
+        </li>
+    );
+};
+
+// Cube Grid - simple, no cascade effect
+const CubeGrid = () => {
+    // Calculate grid dimensions based on viewport
+    const cubeSize = 40; // Fixed square cube size
+    const cols = Math.ceil(window.innerWidth / cubeSize) + 2;
+    const rows = Math.ceil(window.innerHeight / cubeSize) + 2;
+    const totalCubes = cols * rows;
+
+    const cubes = useMemo(() =>
+        Array.from({ length: totalCubes }).map((_, i) => i),
+        [totalCubes]
+    );
+
+    return (
+        <div className="absolute inset-0 z-0 overflow-hidden">
+            <ul
+                className="list-none p-0 m-0 flex flex-wrap"
+                style={{
+                    width: `${cols * cubeSize}px`,
+                }}
+            >
+                {cubes.map((index) => (
+                    <GridCube
+                        key={index}
+                        size={cubeSize}
+                    />
+                ))}
+            </ul>
+        </div>
     );
 };
 
 const Hero = () => {
-    // Create grid of cubes (10x6 grid)
-    const gridRows = 6;
-    const gridCols = 10;
-    const totalCubes = gridRows * gridCols;
-
     return (
         <section className="min-h-screen flex flex-col items-center justify-center bg-transparent px-4 relative overflow-hidden">
-            {/* Grid background with flip cubes */}
-            <div className="absolute inset-0 grid grid-cols-10 grid-rows-6 gap-0 opacity-30">
-                {Array.from({ length: totalCubes }).map((_, i) => (
-                    <GridCube key={i} delay={i * 0.01} />
-                ))}
-            </div>
+            {/* Grid background with 3D flip cubes */}
+            <CubeGrid />
 
             {/* Content */}
             <div className="relative z-10 flex flex-col items-center max-w-6xl mx-auto">
-                {/* Main title - SOLSTICE centered */}
+                {/* Main title - simple, no animation */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -64,7 +108,7 @@ const Hero = () => {
                         SOLSTICE
                     </h1>
                 </motion.div>
-                
+
                 {/* Subtitle */}
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -80,7 +124,7 @@ const Hero = () => {
                     </p>
                 </motion.div>
 
-                {/* Minimal button - matching the style from image */}
+                {/* Minimal button */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -91,10 +135,10 @@ const Hero = () => {
                         className="group inline-flex items-center gap-3 px-10 py-4 border border-white/10 hover:border-accent-grape/50 bg-transparent hover:bg-white/5 text-text-muted hover:text-text-primary transition-all duration-300 font-futuristic text-sm tracking-[0.2em] uppercase"
                     >
                         Documentation
-                        <svg 
-                            className="w-4 h-4 group-hover:translate-x-1 transition-transform" 
-                            fill="none" 
-                            stroke="currentColor" 
+                        <svg
+                            className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                            fill="none"
+                            stroke="currentColor"
                             viewBox="0 0 24 24"
                         >
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

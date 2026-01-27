@@ -24,24 +24,24 @@ export function ExamplesPage() {
         <div className="flex-1 min-w-0">
           <Breadcrumb items={[{ label: 'Documentation', path: '/documentation' }, { label: 'Examples' }]} />
           
-          <h1 className="text-4xl font-bold text-gray-100 mb-4">Code Examples</h1>
-          <p className="text-xl text-gray-300 mb-8">
+          <h1 className="text-4xl font-bold text-text-primary mb-4">Code Examples</h1>
+          <p className="text-xl text-text-secondary mb-8">
             Real-world examples demonstrating how to integrate Solstice SDK into different 
             types of applications. Each example includes complete, working code with detailed comments.
           </p>
 
           {/* DeFi Example */}
           <section id="defi-example" className="mb-12">
-            <h2 className="text-3xl font-semibold text-gray-100 mb-4 border-b border-gray-700 pb-2">
+            <h2 className="text-3xl font-semibold text-text-primary mb-4 border-b border-gray-700 pb-2">
               DeFi Age Verification Example
             </h2>
-            <p className="text-gray-300 mb-6">
+            <p className="text-text-secondary mb-6">
               This example demonstrates how to implement age verification for a DeFi lending platform 
               that requires users to be 18 or older to access services.
             </p>
 
-            <div className="bg-blue-900/20 border border-blue-700/50 rounded-lg p-4 mb-6">
-              <p className="text-gray-300 text-sm">
+            <div className="bg-blue-900/20 border border-blue-700/50  p-4 mb-6">
+              <p className="text-text-secondary text-sm">
                 <strong>Use Case:</strong> A decentralized lending protocol needs to verify that users 
                 meet minimum age requirements for regulatory compliance, without collecting or storing 
                 personal information.
@@ -144,11 +144,11 @@ export function DeFiAgeVerification() {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <div className="bg-gray-800 rounded-lg p-8 shadow-lg">
-        <h2 className="text-3xl font-bold text-gray-100 mb-2">
+      <div className="bg-gray-800  p-8 shadow-lg">
+        <h2 className="text-3xl font-bold text-text-primary mb-2">
           Age Verification Required
         </h2>
-        <p className="text-gray-400 mb-6">
+        <p className="text-text-muted mb-6">
           You must be at least {MIN_AGE} years old to access this DeFi platform.
           Verify your age using your Aadhaar QR code.
         </p>
@@ -162,13 +162,13 @@ export function DeFiAgeVerification() {
           <>
             {/* QR Code Input */}
             <div className="mb-6">
-              <label className="block text-gray-300 mb-2 font-medium">
+              <label className="block text-text-secondary mb-2 font-medium">
                 Aadhaar QR Code Data
               </label>
               <textarea
                 value={qrData}
                 onChange={(e) => setQrData(e.target.value)}
-                className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 bg-gray-700 border border-gray-600  text-text-primary focus:outline-none focus:ring-2 focus:ring-blue-500"
                 rows={4}
                 placeholder="Scan your Aadhaar QR code and paste the data here"
                 disabled={verificationStatus === 'verifying'}
@@ -179,14 +179,14 @@ export function DeFiAgeVerification() {
             <button
               onClick={handleVerifyAge}
               disabled={verificationStatus === 'verifying' || !publicKey}
-              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-semibold py-3 px-6  transition-colors"
             >
               {verificationStatus === 'verifying' ? 'Verifying...' : 'Verify Age'}
             </button>
 
             {/* Status Messages */}
             {verificationStatus === 'verifying' && (
-              <div className="mt-4 p-4 bg-blue-900/30 border border-blue-700 rounded-lg">
+              <div className="mt-4 p-4 bg-blue-900/30 border border-blue-700 ">
                 <p className="text-blue-300 text-sm">
                   ⏳ Generating and verifying proof... This may take up to 10 seconds.
                 </p>
@@ -194,24 +194,24 @@ export function DeFiAgeVerification() {
             )}
 
             {verificationStatus === 'verified' && (
-              <div className="mt-4 p-4 bg-green-900/30 border border-green-700 rounded-lg">
+              <div className="mt-4 p-4 bg-green-900/30 border border-green-700 ">
                 <p className="text-green-300 font-medium mb-2">
                    Age verification successful!
                 </p>
-                <p className="text-gray-400 text-sm">
+                <p className="text-text-muted text-sm">
                   Transaction: <code className="text-xs">{txSignature}</code>
                 </p>
               </div>
             )}
 
             {error && (
-              <div className="mt-4 p-4 bg-red-900/30 border border-red-700 rounded-lg">
-                <p className="text-red-300 text-sm"> {error}</p>
+              <div className="mt-4 p-4 bg-red-900/30 border border-red-700 ">
+                <p className="text-text-secondary text-sm"> {error}</p>
               </div>
             )}
           </>
         ) : (
-          <div className="p-4 bg-green-900/30 border border-green-700 rounded-lg">
+          <div className="p-4 bg-green-900/30 border border-green-700 ">
             <p className="text-green-300 font-medium">
                You are already verified! You can now access all DeFi services.
             </p>
@@ -219,8 +219,8 @@ export function DeFiAgeVerification() {
         )}
 
         {/* Privacy Notice */}
-        <div className="mt-6 p-4 bg-gray-700/50 rounded-lg">
-          <p className="text-gray-400 text-xs">
+        <div className="mt-6 p-4 bg-gray-700/50 ">
+          <p className="text-text-muted text-xs">
              <strong>Privacy Guaranteed:</strong> Your personal information is never revealed. 
             The zero-knowledge proof only confirms you meet the age requirement without exposing 
             your date of birth or other identity details.
@@ -233,9 +233,9 @@ export function DeFiAgeVerification() {
               language="typescript"
             />
 
-            <div className="mt-6 bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-100 mb-3">Key Features</h3>
-              <ul className="space-y-2 text-gray-300 text-sm">
+            <div className="mt-6 p-5 border-l-2 border-white/10 bg-white/[0.02]">
+              <h3 className="text-lg font-semibold text-text-primary mb-3">Key Features</h3>
+              <ul className="space-y-2 text-text-secondary text-sm">
                 <li>• Complete age verification flow with user feedback</li>
                 <li>• Local proof verification before on-chain submission</li>
                 <li>• Transaction confirmation and status tracking</li>
@@ -247,16 +247,16 @@ export function DeFiAgeVerification() {
 
           {/* Voting Example */}
           <section id="voting-example" className="mb-12">
-            <h2 className="text-3xl font-semibold text-gray-100 mb-4 border-b border-gray-700 pb-2">
+            <h2 className="text-3xl font-semibold text-text-primary mb-4 border-b border-gray-700 pb-2">
               Voting Application Example
             </h2>
-            <p className="text-gray-300 mb-6">
+            <p className="text-text-secondary mb-6">
               This example shows how to implement a secure voting system with uniqueness proofs 
               to ensure one-person-one-vote while maintaining voter anonymity.
             </p>
 
-            <div className="bg-purple-900/20 border border-purple-700/50 rounded-lg p-4 mb-6">
-              <p className="text-gray-300 text-sm">
+            <div className="bg-purple-900/20 border border-purple-700/50  p-4 mb-6">
+              <p className="text-text-secondary text-sm">
                 <strong>Use Case:</strong> A DAO governance system needs to ensure each member can 
                 only vote once per proposal, while keeping votes anonymous and preventing Sybil attacks.
               </p>
@@ -399,17 +399,17 @@ export function VotingSystem({ proposal }: { proposal: Proposal }) {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <div className="bg-gray-800 rounded-lg p-8 shadow-lg">
-        <h2 className="text-2xl font-bold text-gray-100 mb-2">
+      <div className="bg-gray-800  p-8 shadow-lg">
+        <h2 className="text-2xl font-bold text-text-primary mb-2">
           {proposal.title}
         </h2>
-        <p className="text-gray-400 mb-6">{proposal.description}</p>
+        <p className="text-text-muted mb-6">{proposal.description}</p>
 
         {!hasVoted ? (
           <>
             {/* Voting Options */}
             <div className="mb-6">
-              <label className="block text-gray-300 mb-3 font-medium">
+              <label className="block text-text-secondary mb-3 font-medium">
                 Select Your Vote
               </label>
               <div className="space-y-2">
@@ -417,13 +417,13 @@ export function VotingSystem({ proposal }: { proposal: Proposal }) {
                   <button
                     key={index}
                     onClick={() => setSelectedOption(index)}
-                    className={\`w-full p-4 rounded-lg border-2 transition-colors text-left \${
+                    className={\`w-full p-4  border-2 transition-colors text-left \${
                       selectedOption === index
                         ? 'border-blue-500 bg-blue-900/30'
                         : 'border-gray-600 bg-gray-700 hover:border-gray-500'
                     }\`}
                   >
-                    <span className="text-gray-100 font-medium">{option}</span>
+                    <span className="text-text-primary font-medium">{option}</span>
                   </button>
                 ))}
               </div>
@@ -431,13 +431,13 @@ export function VotingSystem({ proposal }: { proposal: Proposal }) {
 
             {/* QR Code Input */}
             <div className="mb-6">
-              <label className="block text-gray-300 mb-2 font-medium">
+              <label className="block text-text-secondary mb-2 font-medium">
                 Aadhaar QR Code (for uniqueness verification)
               </label>
               <textarea
                 value={qrData}
                 onChange={(e) => setQrData(e.target.value)}
-                className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 bg-gray-700 border border-gray-600  text-text-primary focus:outline-none focus:ring-2 focus:ring-blue-500"
                 rows={3}
                 placeholder="Paste Aadhaar QR data"
                 disabled={votingStatus !== 'idle'}
@@ -448,7 +448,7 @@ export function VotingSystem({ proposal }: { proposal: Proposal }) {
             <button
               onClick={handleVote}
               disabled={votingStatus !== 'idle' || selectedOption === null || !publicKey}
-              className="w-full bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+              className="w-full bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-semibold py-3 px-6  transition-colors"
             >
               {votingStatus === 'verifying' && 'Verifying Identity...'}
               {votingStatus === 'voting' && 'Submitting Vote...'}
@@ -456,28 +456,28 @@ export function VotingSystem({ proposal }: { proposal: Proposal }) {
             </button>
 
             {error && (
-              <div className="mt-4 p-4 bg-red-900/30 border border-red-700 rounded-lg">
-                <p className="text-red-300 text-sm"> {error}</p>
+              <div className="mt-4 p-4 bg-red-900/30 border border-red-700 ">
+                <p className="text-text-secondary text-sm"> {error}</p>
               </div>
             )}
           </>
         ) : (
-          <div className="p-6 bg-green-900/30 border border-green-700 rounded-lg">
+          <div className="p-6 bg-green-900/30 border border-green-700 ">
             <p className="text-green-300 font-medium mb-2">
                Your vote has been recorded!
             </p>
-            <p className="text-gray-400 text-sm">
+            <p className="text-text-muted text-sm">
               Nullifier: <code className="text-xs">{nullifierHash.slice(0, 16)}...</code>
             </p>
-            <p className="text-gray-400 text-sm mt-2">
+            <p className="text-text-muted text-sm mt-2">
               Your vote is anonymous but verifiably unique. You cannot vote again on this proposal.
             </p>
           </div>
         )}
 
         {/* Privacy & Security Notice */}
-        <div className="mt-6 p-4 bg-gray-700/50 rounded-lg">
-          <p className="text-gray-400 text-xs">
+        <div className="mt-6 p-4 bg-gray-700/50 ">
+          <p className="text-text-muted text-xs">
              <strong>Anonymous Voting:</strong> Your vote is completely anonymous. The system 
             only knows that a unique, verified person voted, but cannot link the vote to your identity.
             <br /><br />
@@ -492,9 +492,9 @@ export function VotingSystem({ proposal }: { proposal: Proposal }) {
               language="typescript"
             />
 
-            <div className="mt-6 bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-100 mb-3">Key Features</h3>
-              <ul className="space-y-2 text-gray-300 text-sm">
+            <div className="mt-6 p-5 border-l-2 border-white/10 bg-white/[0.02]">
+              <h3 className="text-lg font-semibold text-text-primary mb-3">Key Features</h3>
+              <ul className="space-y-2 text-text-secondary text-sm">
                 <li>• One-person-one-vote guarantee using uniqueness proofs</li>
                 <li>• Anonymous voting with verifiable uniqueness</li>
                 <li>• Proposal-specific nullifiers for multi-proposal support</li>
@@ -506,16 +506,16 @@ export function VotingSystem({ proposal }: { proposal: Proposal }) {
 
           {/* Gaming Example */}
           <section id="gaming-example" className="mb-12">
-            <h2 className="text-3xl font-semibold text-gray-100 mb-4 border-b border-gray-700 pb-2">
+            <h2 className="text-3xl font-semibold text-text-primary mb-4 border-b border-gray-700 pb-2">
               Gaming Application Example
             </h2>
-            <p className="text-gray-300 mb-6">
+            <p className="text-text-secondary mb-6">
               This example demonstrates how to implement age verification and anti-cheat measures 
               for an online gaming platform using both age and uniqueness proofs.
             </p>
 
-            <div className="bg-green-900/20 border border-green-700/50 rounded-lg p-4 mb-6">
-              <p className="text-gray-300 text-sm">
+            <div className="bg-green-900/20 border border-green-700/50  p-4 mb-6">
+              <p className="text-text-secondary text-sm">
                 <strong>Use Case:</strong> An online casino or gaming platform needs to verify 
                 players are 21+ and ensure each person can only create one account to prevent 
                 multi-accounting and cheating.
@@ -681,11 +681,11 @@ export function GamingRegistration() {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <div className="bg-gray-800 rounded-lg p-8 shadow-lg">
-        <h2 className="text-3xl font-bold text-gray-100 mb-2">
+      <div className="bg-gray-800  p-8 shadow-lg">
+        <h2 className="text-3xl font-bold text-text-primary mb-2">
           Create Gaming Account
         </h2>
-        <p className="text-gray-400 mb-6">
+        <p className="text-text-muted mb-6">
           Register for our gaming platform. You must be 21+ and can only create one account.
         </p>
 
@@ -694,7 +694,7 @@ export function GamingRegistration() {
             {/* Registration Form */}
             <div className="space-y-4 mb-6">
               <div>
-                <label className="block text-gray-300 mb-2 font-medium">
+                <label className="block text-text-secondary mb-2 font-medium">
                   Username
                 </label>
                 <input
@@ -703,13 +703,13 @@ export function GamingRegistration() {
                   onChange={(e) =>
                     setRegistrationData({ ...registrationData, username: e.target.value })
                   }
-                  className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full p-3 bg-gray-700 border border-gray-600  text-text-primary focus:outline-none focus:ring-2 focus:ring-green-500"
                   placeholder="Choose a username"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-300 mb-2 font-medium">
+                <label className="block text-text-secondary mb-2 font-medium">
                   Email
                 </label>
                 <input
@@ -718,19 +718,19 @@ export function GamingRegistration() {
                   onChange={(e) =>
                     setRegistrationData({ ...registrationData, email: e.target.value })
                   }
-                  className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full p-3 bg-gray-700 border border-gray-600  text-text-primary focus:outline-none focus:ring-2 focus:ring-green-500"
                   placeholder="your@email.com"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-300 mb-2 font-medium">
+                <label className="block text-text-secondary mb-2 font-medium">
                   Aadhaar QR Code (for age & uniqueness verification)
                 </label>
                 <textarea
                   value={qrData}
                   onChange={(e) => setQrData(e.target.value)}
-                  className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full p-3 bg-gray-700 border border-gray-600  text-text-primary focus:outline-none focus:ring-2 focus:ring-green-500"
                   rows={4}
                   placeholder="Paste Aadhaar QR data here"
                 />
@@ -746,7 +746,7 @@ export function GamingRegistration() {
                   }
                   className="mt-1"
                 />
-                <label htmlFor="terms" className="text-gray-300 text-sm">
+                <label htmlFor="terms" className="text-text-secondary text-sm">
                   I accept the terms and conditions, and I am at least 21 years old
                 </label>
               </div>
@@ -756,14 +756,14 @@ export function GamingRegistration() {
             <button
               onClick={handleRegister}
               disabled={!publicKey}
-              className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+              className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-semibold py-3 px-6  transition-colors"
             >
               Register Account
             </button>
 
             {error && (
-              <div className="mt-4 p-4 bg-red-900/30 border border-red-700 rounded-lg">
-                <p className="text-red-300 text-sm"> {error}</p>
+              <div className="mt-4 p-4 bg-red-900/30 border border-red-700 ">
+                <p className="text-text-secondary text-sm"> {error}</p>
               </div>
             )}
           </>
@@ -772,8 +772,8 @@ export function GamingRegistration() {
         {step === 'verifying' && (
           <div className="py-12 text-center">
             <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-green-500 mx-auto mb-4"></div>
-            <p className="text-gray-300 text-lg mb-2">Verifying your identity...</p>
-            <p className="text-gray-400 text-sm">
+            <p className="text-text-secondary text-lg mb-2">Verifying your identity...</p>
+            <p className="text-text-muted text-sm">
               This process includes age verification (21+) and uniqueness verification.
               <br />
               Please wait, this may take up to 15 seconds.
@@ -783,28 +783,28 @@ export function GamingRegistration() {
 
         {step === 'complete' && (
           <div className="space-y-4">
-            <div className="p-6 bg-green-900/30 border border-green-700 rounded-lg">
+            <div className="p-6 bg-green-900/30 border border-green-700 ">
               <p className="text-green-300 font-bold text-xl mb-4">
                  Registration Complete!
               </p>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center gap-2">
-                  <span className="text-green-400">✓</span>
-                  <span className="text-gray-300">Age verified (21+)</span>
+                  <span className="text-green-400"></span>
+                  <span className="text-text-secondary">Age verified (21+)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-green-400">✓</span>
-                  <span className="text-gray-300">Uniqueness verified (anti-cheat)</span>
+                  <span className="text-green-400"></span>
+                  <span className="text-text-secondary">Uniqueness verified (anti-cheat)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-green-400">✓</span>
-                  <span className="text-gray-300">Account created</span>
+                  <span className="text-green-400"></span>
+                  <span className="text-text-secondary">Account created</span>
                 </div>
               </div>
             </div>
 
-            <div className="p-4 bg-gray-700/50 rounded-lg">
-              <p className="text-gray-400 text-xs mb-2">
+            <div className="p-4 bg-gray-700/50 ">
+              <p className="text-text-muted text-xs mb-2">
                 <strong>Verification Details:</strong>
               </p>
               <div className="space-y-1 text-xs font-mono text-gray-500">
@@ -816,7 +816,7 @@ export function GamingRegistration() {
 
             <button
               onClick={() => window.location.href = '/games'}
-              className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+              className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6  transition-colors"
             >
               Start Playing
             </button>
@@ -824,8 +824,8 @@ export function GamingRegistration() {
         )}
 
         {/* Security Features */}
-        <div className="mt-6 p-4 bg-gray-700/50 rounded-lg">
-          <p className="text-gray-400 text-xs">
+        <div className="mt-6 p-4 bg-gray-700/50 ">
+          <p className="text-text-muted text-xs">
              <strong>Privacy Protected:</strong> Your personal information is never stored or shared.
             <br /><br />
             🛡️ <strong>Anti-Cheat:</strong> Each person can only create one account, preventing 
@@ -842,9 +842,9 @@ export function GamingRegistration() {
               language="typescript"
             />
 
-            <div className="mt-6 bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-100 mb-3">Key Features</h3>
-              <ul className="space-y-2 text-gray-300 text-sm">
+            <div className="mt-6 p-5 border-l-2 border-white/10 bg-white/[0.02]">
+              <h3 className="text-lg font-semibold text-text-primary mb-3">Key Features</h3>
+              <ul className="space-y-2 text-text-secondary text-sm">
                 <li>• Combined age and uniqueness verification in one flow</li>
                 <li>• Multi-account prevention using nullifier hashes</li>
                 <li>• Age-gated access for gambling/casino games (21+)</li>
@@ -856,19 +856,19 @@ export function GamingRegistration() {
 
           {/* Additional Resources */}
           <section className="mb-12">
-            <h2 className="text-3xl font-semibold text-gray-100 mb-4 border-b border-gray-700 pb-2">
+            <h2 className="text-3xl font-semibold text-text-primary mb-4 border-b border-gray-700 pb-2">
               Additional Resources
             </h2>
-            <p className="text-gray-300 mb-6">
+            <p className="text-text-secondary mb-6">
               Explore more examples and get the complete source code:
             </p>
 
             <div className="grid gap-4 md:grid-cols-2">
-              <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-100 mb-2">
+              <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
+                <h3 className="text-lg font-semibold text-text-primary mb-2">
                    Example Repository
                 </h3>
-                <p className="text-gray-400 text-sm mb-4">
+                <p className="text-text-muted text-sm mb-4">
                   Complete working examples with full source code, tests, and deployment instructions.
                 </p>
                 <ExternalLink href="https://github.com/solstice-protocol/solstice-examples">
@@ -876,11 +876,11 @@ export function GamingRegistration() {
                 </ExternalLink>
               </div>
 
-              <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-100 mb-2">
+              <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
+                <h3 className="text-lg font-semibold text-text-primary mb-2">
                   🎮 Live Demos
                 </h3>
-                <p className="text-gray-400 text-sm mb-4">
+                <p className="text-text-muted text-sm mb-4">
                   Try out live demos of each example application in your browser.
                 </p>
                 <ExternalLink href="https://examples.solsticeprotocol.com">
@@ -888,11 +888,11 @@ export function GamingRegistration() {
                 </ExternalLink>
               </div>
 
-              <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-100 mb-2">
+              <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
+                <h3 className="text-lg font-semibold text-text-primary mb-2">
                    Tutorial Series
                 </h3>
-                <p className="text-gray-400 text-sm mb-4">
+                <p className="text-text-muted text-sm mb-4">
                   Step-by-step video tutorials walking through each example implementation.
                 </p>
                 <ExternalLink href="https://youtube.com/@solsticeprotocol">
@@ -900,11 +900,11 @@ export function GamingRegistration() {
                 </ExternalLink>
               </div>
 
-              <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-100 mb-2">
+              <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
+                <h3 className="text-lg font-semibold text-text-primary mb-2">
                   💬 Community Support
                 </h3>
-                <p className="text-gray-400 text-sm mb-4">
+                <p className="text-text-muted text-sm mb-4">
                   Get help from the community and share your own implementations.
                 </p>
                 <ExternalLink href="https://discord.gg/solstice">

@@ -1,6 +1,5 @@
 import { Breadcrumb } from '../../components/documentation/Breadcrumb';
 import { ExternalLink } from '../../components/documentation/ExternalLink';
-import { Shield, Zap, Lock, CheckCircle } from 'lucide-react';
 
 /**
  * OverviewPage Component
@@ -48,40 +47,25 @@ export function OverviewPage() {
           Supported Proof Types
         </h2>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="bg-white/5 border border-white/10 hover:border-vintage-grape-500/50 rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:shadow-vintage-grape-900/20 group">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 rounded-lg bg-vintage-grape-500/20 text-vintage-grape-300 group-hover:text-vintage-grape-200 transition-colors">
-                <CheckCircle className="w-5 h-5" />
-              </div>
-              <h3 className="text-lg font-medium text-text-primary">Age Proof</h3>
-            </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          <div className="p-5 border-l-2 border-vintage-grape-500/30 bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+            <h3 className="text-lg font-medium text-text-primary mb-2">Age Proof</h3>
             <p className="text-text-muted text-sm leading-relaxed font-light">
               Prove that a user meets age requirements (e.g., over 18, over 21) without revealing
               their exact date of birth or other personal information.
             </p>
           </div>
 
-          <div className="bg-white/5 border border-white/10 hover:border-vintage-grape-500/50 rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:shadow-vintage-grape-900/20 group">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 rounded-lg bg-vintage-grape-500/20 text-vintage-grape-300 group-hover:text-vintage-grape-200 transition-colors">
-                <CheckCircle className="w-5 h-5" />
-              </div>
-              <h3 className="text-lg font-medium text-text-primary">Nationality Proof</h3>
-            </div>
+          <div className="p-5 border-l-2 border-vintage-grape-500/30 bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+            <h3 className="text-lg font-medium text-text-primary mb-2">Nationality Proof</h3>
             <p className="text-text-muted text-sm leading-relaxed font-light">
               Verify a user's nationality or geographic eligibility for region-restricted services
               while maintaining privacy of their full identity.
             </p>
           </div>
 
-          <div className="bg-white/5 border border-white/10 hover:border-vintage-grape-500/50 rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:shadow-vintage-grape-900/20 group">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 rounded-lg bg-vintage-grape-500/20 text-vintage-grape-300 group-hover:text-vintage-grape-200 transition-colors">
-                <CheckCircle className="w-5 h-5" />
-              </div>
-              <h3 className="text-lg font-medium text-text-primary">Uniqueness Proof</h3>
-            </div>
+          <div className="p-5 border-l-2 border-vintage-grape-500/30 bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+            <h3 className="text-lg font-medium text-text-primary mb-2">Uniqueness Proof</h3>
             <p className="text-text-muted text-sm leading-relaxed font-light">
               Ensure that each user can only register once, preventing Sybil attacks and duplicate
               accounts without linking identities across sessions.
@@ -97,50 +81,29 @@ export function OverviewPage() {
           Key Features
         </h2>
 
-        <div className="space-y-6">
-          <div className="flex gap-6 p-6 rounded-xl border border-transparent hover:border-white/5 hover:bg-white/[0.02] transition-colors">
-            <div className="flex-shrink-0">
-              <div className="w-12 h-12 rounded-full bg-vintage-grape-900/50 flex items-center justify-center border border-vintage-grape-500/30">
-                <Shield className="w-6 h-6 text-vintage-grape-300" />
-              </div>
-            </div>
-            <div>
-              <h3 className="text-lg font-medium text-text-primary mb-2">Privacy-Preserving Verification</h3>
-              <p className="text-text-secondary font-light">
-                Users can prove identity attributes without revealing sensitive personal information.
-                Zero-Knowledge proofs ensure that verifiers learn nothing beyond the validity of the claim.
-              </p>
-            </div>
+        <div className="space-y-4">
+          <div className="p-5 border-l-2 border-vintage-grape-500/20 hover:border-vintage-grape-500/40 transition-colors">
+            <h3 className="text-lg font-medium text-text-primary mb-2">Privacy-Preserving Verification</h3>
+            <p className="text-text-secondary font-light">
+              Users can prove identity attributes without revealing sensitive personal information.
+              Zero-Knowledge proofs ensure that verifiers learn nothing beyond the validity of the claim.
+            </p>
           </div>
 
-          <div className="flex gap-6 p-6 rounded-xl border border-transparent hover:border-white/5 hover:bg-white/[0.02] transition-colors">
-            <div className="flex-shrink-0">
-              <div className="w-12 h-12 rounded-full bg-grey-olive-900/50 flex items-center justify-center border border-grey-olive-500/30">
-                <Zap className="w-6 h-6 text-grey-olive-300" />
-              </div>
-            </div>
-            <div>
-              <h3 className="text-lg font-medium text-text-primary mb-2">Aadhaar QR Code Processing</h3>
-              <p className="text-text-secondary font-light">
-                Seamlessly extract and process identity data from Aadhaar QR codes. The SDK handles
-                QR code scanning, data extraction, and validation automatically.
-              </p>
-            </div>
+          <div className="p-5 border-l-2 border-grey-olive-500/20 hover:border-grey-olive-500/40 transition-colors">
+            <h3 className="text-lg font-medium text-text-primary mb-2">Aadhaar QR Code Processing</h3>
+            <p className="text-text-secondary font-light">
+              Seamlessly extract and process identity data from Aadhaar QR codes. The SDK handles
+              QR code scanning, data extraction, and validation automatically.
+            </p>
           </div>
 
-          <div className="flex gap-6 p-6 rounded-xl border border-transparent hover:border-white/5 hover:bg-white/[0.02] transition-colors">
-            <div className="flex-shrink-0">
-              <div className="w-12 h-12 rounded-full bg-stone-brown-900/50 flex items-center justify-center border border-stone-brown-500/30">
-                <Lock className="w-6 h-6 text-stone-brown-300" />
-              </div>
-            </div>
-            <div>
-              <h3 className="text-lg font-medium text-text-primary mb-2">Groth16 SNARKs</h3>
-              <p className="text-text-secondary font-light">
-                Built on battle-tested Groth16 SNARK cryptography, providing strong security guarantees
-                with efficient proof generation and verification. Proofs are succinct and fast to verify on-chain.
-              </p>
-            </div>
+          <div className="p-5 border-l-2 border-stone-brown-500/20 hover:border-stone-brown-500/40 transition-colors">
+            <h3 className="text-lg font-medium text-text-primary mb-2">Groth16 SNARKs</h3>
+            <p className="text-text-secondary font-light">
+              Built on battle-tested Groth16 SNARK cryptography, providing strong security guarantees
+              with efficient proof generation and verification. Proofs are succinct and fast to verify on-chain.
+            </p>
           </div>
         </div>
       </section>
@@ -152,11 +115,11 @@ export function OverviewPage() {
           Use Case Examples
         </h2>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {['DeFi Applications', 'Voting Applications', 'Gaming Applications'].map((title, i) => (
-            <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/[0.07] transition-colors">
-              <h3 className="text-lg font-medium text-text-primary mb-2">{title}</h3>
-              <p className="text-text-secondary font-light mb-2">Implement compliant solutions without compromising privacy.</p>
+            <div key={i} className="p-4 border-l-2 border-white/10 hover:border-vintage-grape-400/50 transition-colors">
+              <h3 className="text-base font-medium text-text-primary">{title}</h3>
+              <p className="text-text-muted font-light text-sm mt-1">Implement compliant solutions without compromising privacy.</p>
             </div>
           ))}
         </div>
@@ -169,7 +132,7 @@ export function OverviewPage() {
           Next Steps
         </h2>
 
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-3 md:grid-cols-2">
           {[
             { title: 'Installation Guide', path: '/documentation/installation', desc: 'Learn how to install and configure the Solstice SDK.' },
             { title: 'Quick Start', path: '/documentation/quick-start', desc: 'Get up and running with a minimal working example.' },
@@ -179,12 +142,12 @@ export function OverviewPage() {
             <a
               key={i}
               href={item.path}
-              className="block bg-white/5 border border-white/10 hover:border-vintage-grape-500/50 rounded-xl p-6 transition-all duration-300 hover:bg-white/[0.08] group"
+              className="block p-4 border-l-2 border-white/10 hover:border-vintage-grape-400/50 hover:bg-white/[0.02] transition-all group"
             >
-              <h3 className="text-lg font-medium text-text-primary group-hover:text-vintage-grape-200 mb-2 transition-colors">
+              <h3 className="text-base font-medium text-text-primary group-hover:text-vintage-grape-200 transition-colors">
                 {item.title}
               </h3>
-              <p className="text-text-muted text-sm font-light">
+              <p className="text-text-muted text-sm font-light mt-1">
                 {item.desc}
               </p>
             </a>

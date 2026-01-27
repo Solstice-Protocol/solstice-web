@@ -25,9 +25,9 @@ export function IntegrationGuidePage() {
       <div className="flex gap-8">
         <div className="flex-1 min-w-0">
           <Breadcrumb items={[{ label: 'Documentation', path: '/documentation' }, { label: 'Integration Guide' }]} />
-          
-          <h1 className="text-4xl font-bold text-gray-100 mb-4">Integration Guide</h1>
-          <p className="text-xl text-gray-300 mb-8">
+
+          <h1 className="text-4xl font-bold text-text-primary mb-4">Integration Guide</h1>
+          <p className="text-xl text-text-secondary mb-8">
             Framework-specific guides for integrating the Solstice SDK into your application.
             Choose your framework below to see tailored examples and best practices.
           </p>
@@ -36,31 +36,28 @@ export function IntegrationGuidePage() {
           <div className="flex gap-2 mb-8 border-b border-gray-700">
             <button
               onClick={() => setActiveTab('react')}
-              className={`px-6 py-3 font-medium transition-colors ${
-                activeTab === 'react'
-                  ? 'text-blue-400 border-b-2 border-blue-400'
-                  : 'text-gray-400 hover:text-gray-300'
-              }`}
+              className={`px-6 py-3 font-medium transition-colors ${activeTab === 'react'
+                ? 'text-blue-400 border-b-2 border-blue-400'
+                : 'text-text-muted hover:text-text-secondary'
+                }`}
             >
               React
             </button>
             <button
               onClick={() => setActiveTab('nextjs')}
-              className={`px-6 py-3 font-medium transition-colors ${
-                activeTab === 'nextjs'
-                  ? 'text-blue-400 border-b-2 border-blue-400'
-                  : 'text-gray-400 hover:text-gray-300'
-              }`}
+              className={`px-6 py-3 font-medium transition-colors ${activeTab === 'nextjs'
+                ? 'text-blue-400 border-b-2 border-blue-400'
+                : 'text-text-muted hover:text-text-secondary'
+                }`}
             >
               Next.js
             </button>
             <button
               onClick={() => setActiveTab('nodejs')}
-              className={`px-6 py-3 font-medium transition-colors ${
-                activeTab === 'nodejs'
-                  ? 'text-blue-400 border-b-2 border-blue-400'
-                  : 'text-gray-400 hover:text-gray-300'
-              }`}
+              className={`px-6 py-3 font-medium transition-colors ${activeTab === 'nodejs'
+                ? 'text-blue-400 border-b-2 border-blue-400'
+                : 'text-text-muted hover:text-text-secondary'
+                }`}
             >
               Node.js
             </button>
@@ -69,18 +66,18 @@ export function IntegrationGuidePage() {
           {/* React Integration */}
           {activeTab === 'react' && (
             <section id="react-integration" className="mb-12">
-              <h2 className="text-3xl font-semibold text-gray-100 mb-4 border-b border-gray-700 pb-2">
+              <h2 className="text-3xl font-semibold text-text-primary mb-4 border-b border-gray-700 pb-2">
                 React Integration
               </h2>
-              <p className="text-gray-300 mb-6">
-                Integrate Solstice SDK into your React application with proper state management 
+              <p className="text-text-secondary mb-6">
+                Integrate Solstice SDK into your React application with proper state management
                 and wallet integration using Solana wallet adapters.
               </p>
 
               {/* Installation */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">1. Install Dependencies</h3>
-                <p className="text-gray-300 mb-4">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">1. Install Dependencies</h3>
+                <p className="text-text-secondary mb-4">
                   First, install the Solstice SDK along with Solana wallet adapters:
                 </p>
                 <CodeBlock
@@ -91,8 +88,8 @@ export function IntegrationGuidePage() {
 
               {/* Setup Wallet Provider */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">2. Setup Wallet Provider</h3>
-                <p className="text-gray-300 mb-4">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">2. Setup Wallet Provider</h3>
+                <p className="text-text-secondary mb-4">
                   Configure the Solana wallet adapter in your app's root component:
                 </p>
                 <CodeBlock
@@ -138,8 +135,8 @@ export default App;`}
 
               {/* Initialize SDK */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">3. Initialize SDK in Component</h3>
-                <p className="text-gray-300 mb-4">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">3. Initialize SDK in Component</h3>
+                <p className="text-text-secondary mb-4">
                   Create a custom hook or initialize the SDK in your component:
                 </p>
                 <CodeBlock
@@ -172,8 +169,8 @@ export function useSolsticeSDK() {
 
               {/* State Management */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">4. State Management Pattern</h3>
-                <p className="text-gray-300 mb-4">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">4. State Management Pattern</h3>
+                <p className="text-text-secondary mb-4">
                   Manage proof generation state with React hooks:
                 </p>
                 <CodeBlock
@@ -227,7 +224,7 @@ export function ProofGenerator() {
     <div>
       {/* Your UI components */}
       {loading && <p>Generating proof...</p>}
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-text-muted">{error}</p>}
       {proof && <p className="text-green-500">Proof generated successfully!</p>}
     </div>
   );
@@ -238,8 +235,8 @@ export function ProofGenerator() {
 
               {/* Complete Example */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">5. Complete Example</h3>
-                <p className="text-gray-300 mb-4">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">5. Complete Example</h3>
+                <p className="text-text-secondary mb-4">
                   Here's a complete working example with QR scanning and proof generation:
                 </p>
                 <CodeBlock
@@ -335,34 +332,34 @@ export function IdentityVerification() {
 
               {/* React-Specific Considerations */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">React-Specific Considerations</h3>
-                <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6 space-y-4">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">React-Specific Considerations</h3>
+                <div className="p-5 border-l-2 border-white/10 bg-white/[0.02] space-y-4">
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100 mb-2">🔄 State Management</h4>
-                    <p className="text-gray-300 text-sm">
-                      Use React hooks (useState, useEffect) to manage proof generation state. 
-                      Consider using Context API or state management libraries like Zustand for 
+                    <h4 className="text-lg font-semibold text-text-primary mb-2"> State Management</h4>
+                    <p className="text-text-secondary text-sm">
+                      Use React hooks (useState, useEffect) to manage proof generation state.
+                      Consider using Context API or state management libraries like Zustand for
                       complex applications.
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100 mb-2">⚡ Performance</h4>
-                    <p className="text-gray-300 text-sm">
-                      Memoize the SDK instance with useMemo to prevent unnecessary re-initialization. 
+                    <h4 className="text-lg font-semibold text-text-primary mb-2"> Performance</h4>
+                    <p className="text-text-secondary text-sm">
+                      Memoize the SDK instance with useMemo to prevent unnecessary re-initialization.
                       Proof generation is CPU-intensive, so show loading indicators to improve UX.
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100 mb-2">🔌 Wallet Connection</h4>
-                    <p className="text-gray-300 text-sm">
-                      Always check if the wallet is connected before initializing the SDK. 
+                    <h4 className="text-lg font-semibold text-text-primary mb-2"> Wallet Connection</h4>
+                    <p className="text-text-secondary text-sm">
+                      Always check if the wallet is connected before initializing the SDK.
                       Handle wallet disconnection gracefully by cleaning up SDK instances.
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100 mb-2"> Circuit Files</h4>
-                    <p className="text-gray-300 text-sm">
-                      Place circuit files in the public directory (/public/circuits) so they can 
+                    <h4 className="text-lg font-semibold text-text-primary mb-2"> Circuit Files</h4>
+                    <p className="text-text-secondary text-sm">
+                      Place circuit files in the public directory (/public/circuits) so they can
                       be loaded at runtime. Ensure the circuitsPath matches your public directory structure.
                     </p>
                   </div>
@@ -374,17 +371,17 @@ export function IdentityVerification() {
           {/* Next.js Integration */}
           {activeTab === 'nextjs' && (
             <section id="nextjs-integration" className="mb-12">
-              <h2 className="text-3xl font-semibold text-gray-100 mb-4 border-b border-gray-700 pb-2">
+              <h2 className="text-3xl font-semibold text-text-primary mb-4 border-b border-gray-700 pb-2">
                 Next.js Integration
               </h2>
-              <p className="text-gray-300 mb-6">
-                Integrate Solstice SDK into your Next.js application with proper SSR handling 
+              <p className="text-text-secondary mb-6">
+                Integrate Solstice SDK into your Next.js application with proper SSR handling
                 and App Router or Pages Router support.
               </p>
 
               {/* Installation */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">1. Install Dependencies</h3>
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">1. Install Dependencies</h3>
                 <CodeBlock
                   code={`npm install @solsticeprotocol/sdk @solana/wallet-adapter-react @solana/wallet-adapter-react-ui @solana/wallet-adapter-wallets @solana/web3.js`}
                   language="bash"
@@ -393,8 +390,8 @@ export function IdentityVerification() {
 
               {/* App Router Setup */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">2. Setup with App Router (Next.js 13+)</h3>
-                <p className="text-gray-300 mb-4">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">2. Setup with App Router (Next.js 13+)</h3>
+                <p className="text-text-secondary mb-4">
                   Create a client component for wallet provider:
                 </p>
                 <CodeBlock
@@ -434,7 +431,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 }`}
                   language="typescript"
                 />
-                <p className="text-gray-300 mt-4 mb-4">
+                <p className="text-text-secondary mt-4 mb-4">
                   Then wrap your app in the root layout:
                 </p>
                 <CodeBlock
@@ -462,8 +459,8 @@ export default function RootLayout({
 
               {/* Pages Router Setup */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">3. Setup with Pages Router (Next.js 12 and below)</h3>
-                <p className="text-gray-300 mb-4">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">3. Setup with Pages Router (Next.js 12 and below)</h3>
+                <p className="text-text-secondary mb-4">
                   Configure wallet provider in _app.tsx:
                 </p>
                 <CodeBlock
@@ -506,8 +503,8 @@ export default function App({ Component, pageProps }: AppProps) {
 
               {/* Client-Side Only Component */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">4. Create Client-Side Component</h3>
-                <p className="text-gray-300 mb-4">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">4. Create Client-Side Component</h3>
+                <p className="text-text-secondary mb-4">
                   SDK operations must run client-side only. Use 'use client' directive or dynamic imports:
                 </p>
                 <CodeBlock
@@ -559,8 +556,8 @@ export function ProofGenerator() {
 
               {/* Dynamic Import Alternative */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">5. Alternative: Dynamic Import (Pages Router)</h3>
-                <p className="text-gray-300 mb-4">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">5. Alternative: Dynamic Import (Pages Router)</h3>
+                <p className="text-text-secondary mb-4">
                   For Pages Router, you can use dynamic imports to prevent SSR issues:
                 </p>
                 <CodeBlock
@@ -587,33 +584,33 @@ export default function VerifyPage() {
 
               {/* Next.js Specific Considerations */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">Next.js-Specific Considerations</h3>
-                <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6 space-y-4">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">Next.js-Specific Considerations</h3>
+                <div className="p-5 border-l-2 border-white/10 bg-white/[0.02] space-y-4">
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100 mb-2">🖥️ SSR Handling</h4>
-                    <p className="text-gray-300 text-sm">
-                      The SDK uses browser-only APIs (WebAssembly, Clipboard). Always use 'use client' 
+                    <h4 className="text-lg font-semibold text-text-primary mb-2">🖥️ SSR Handling</h4>
+                    <p className="text-text-secondary text-sm">
+                      The SDK uses browser-only APIs (WebAssembly, Clipboard). Always use 'use client'
                       directive (App Router) or dynamic imports with ssr: false (Pages Router).
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100 mb-2">📁 Public Directory</h4>
-                    <p className="text-gray-300 text-sm">
-                      Place circuit files in /public/circuits directory. Next.js serves files from 
+                    <h4 className="text-lg font-semibold text-text-primary mb-2">📁 Public Directory</h4>
+                    <p className="text-text-secondary text-sm">
+                      Place circuit files in /public/circuits directory. Next.js serves files from
                       /public at the root URL path.
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100 mb-2">⚙️ Environment Variables</h4>
-                    <p className="text-gray-300 text-sm">
-                      Use NEXT_PUBLIC_ prefix for client-side environment variables. Example: 
+                    <h4 className="text-lg font-semibold text-text-primary mb-2">⚙️ Environment Variables</h4>
+                    <p className="text-text-secondary text-sm">
+                      Use NEXT_PUBLIC_ prefix for client-side environment variables. Example:
                       NEXT_PUBLIC_SOLANA_RPC_URL for custom RPC endpoints.
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100 mb-2">🔄 API Routes</h4>
-                    <p className="text-gray-300 text-sm">
-                      For server-side proof verification, create API routes that interact with Solana. 
+                    <h4 className="text-lg font-semibold text-text-primary mb-2"> API Routes</h4>
+                    <p className="text-text-secondary text-sm">
+                      For server-side proof verification, create API routes that interact with Solana.
                       However, proof generation must happen client-side due to WASM requirements.
                     </p>
                   </div>
@@ -625,17 +622,17 @@ export default function VerifyPage() {
           {/* Node.js Integration */}
           {activeTab === 'nodejs' && (
             <section id="nodejs-integration" className="mb-12">
-              <h2 className="text-3xl font-semibold text-gray-100 mb-4 border-b border-gray-700 pb-2">
+              <h2 className="text-3xl font-semibold text-text-primary mb-4 border-b border-gray-700 pb-2">
                 Node.js Integration
               </h2>
-              <p className="text-gray-300 mb-6">
-                Integrate Solstice SDK into your Node.js backend for server-side proof verification 
+              <p className="text-text-secondary mb-6">
+                Integrate Solstice SDK into your Node.js backend for server-side proof verification
                 and blockchain interactions.
               </p>
 
               {/* Installation */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">1. Install Dependencies</h3>
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">1. Install Dependencies</h3>
                 <CodeBlock
                   code={`npm install @solsticeprotocol/sdk @solana/web3.js`}
                   language="bash"
@@ -644,8 +641,8 @@ export default function VerifyPage() {
 
               {/* Basic Setup */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">2. Basic Setup</h3>
-                <p className="text-gray-300 mb-4">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">2. Basic Setup</h3>
+                <p className="text-text-secondary mb-4">
                   Initialize the SDK with a Keypair for server-side operations:
                 </p>
                 <CodeBlock
@@ -689,8 +686,8 @@ console.log('SDK initialized with public key:', keypair.publicKey.toBase58());`}
 
               {/* Express API Example */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">3. Express API Example</h3>
-                <p className="text-gray-300 mb-4">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">3. Express API Example</h3>
+                <p className="text-text-secondary mb-4">
                   Create an Express API for proof verification:
                 </p>
                 <CodeBlock
@@ -793,8 +790,8 @@ app.listen(PORT, () => {
 
               {/* Background Job Example */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">4. Background Job Processing</h3>
-                <p className="text-gray-300 mb-4">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">4. Background Job Processing</h3>
+                <p className="text-text-secondary mb-4">
                   Process proof verifications in background jobs:
                 </p>
                 <CodeBlock
@@ -875,8 +872,8 @@ setInterval(async () => {
 
               {/* Environment Configuration */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">5. Environment Configuration</h3>
-                <p className="text-gray-300 mb-4">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">5. Environment Configuration</h3>
+                <p className="text-text-secondary mb-4">
                   Example .env file for Node.js applications:
                 </p>
                 <CodeBlock
@@ -900,40 +897,40 @@ KEYPAIR_PATH=./keypair.json`}
 
               {/* Node.js Specific Considerations */}
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-3">Node.js-Specific Considerations</h3>
-                <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6 space-y-4">
+                <h3 className="text-2xl font-semibold text-text-primary mb-3">Node.js-Specific Considerations</h3>
+                <div className="p-5 border-l-2 border-white/10 bg-white/[0.02] space-y-4">
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100 mb-2"> Key Management</h4>
-                    <p className="text-gray-300 text-sm">
-                      Never commit keypairs to version control. Use environment variables or secure 
+                    <h4 className="text-lg font-semibold text-text-primary mb-2"> Key Management</h4>
+                    <p className="text-text-secondary text-sm">
+                      Never commit keypairs to version control. Use environment variables or secure
                       key management services (AWS KMS, HashiCorp Vault) in production.
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100 mb-2">⚠️ Proof Generation Limitation</h4>
-                    <p className="text-gray-300 text-sm">
-                      Proof generation requires WebAssembly and is CPU-intensive. It's recommended to 
+                    <h4 className="text-lg font-semibold text-text-primary mb-2">⚠️ Proof Generation Limitation</h4>
+                    <p className="text-text-secondary text-sm">
+                      Proof generation requires WebAssembly and is CPU-intensive. It's recommended to
                       generate proofs client-side and only verify them server-side.
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100 mb-2">📁 Circuit Files</h4>
-                    <p className="text-gray-300 text-sm">
-                      Store circuit files in a local directory accessible to your Node.js process. 
+                    <h4 className="text-lg font-semibold text-text-primary mb-2">📁 Circuit Files</h4>
+                    <p className="text-text-secondary text-sm">
+                      Store circuit files in a local directory accessible to your Node.js process.
                       Use absolute or relative paths in circuitsPath configuration.
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100 mb-2">🔄 Connection Management</h4>
-                    <p className="text-gray-300 text-sm">
-                      Reuse Connection instances across requests to avoid connection overhead. 
+                    <h4 className="text-lg font-semibold text-text-primary mb-2"> Connection Management</h4>
+                    <p className="text-text-secondary text-sm">
+                      Reuse Connection instances across requests to avoid connection overhead.
                       Consider implementing connection pooling for high-traffic applications.
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-100 mb-2">📊 Monitoring</h4>
-                    <p className="text-gray-300 text-sm">
-                      Implement logging and monitoring for proof verification operations. Track 
+                    <h4 className="text-lg font-semibold text-text-primary mb-2">📊 Monitoring</h4>
+                    <p className="text-text-secondary text-sm">
+                      Implement logging and monitoring for proof verification operations. Track
                       transaction signatures and verification success rates.
                     </p>
                   </div>

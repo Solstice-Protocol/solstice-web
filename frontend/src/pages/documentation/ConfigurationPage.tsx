@@ -24,36 +24,36 @@ export function ConfigurationPage() {
         <div className="flex-1 min-w-0">
           <Breadcrumb items={[{ label: 'Documentation', path: '/documentation' }, { label: 'Configuration' }]} />
           
-          <h1 className="text-4xl font-bold text-gray-100 mb-4">Configuration</h1>
-          <p className="text-xl text-gray-300 mb-8">
+          <h1 className="text-4xl font-bold text-text-primary mb-4">Configuration</h1>
+          <p className="text-xl text-text-secondary mb-8">
             Complete guide to configuring the Solstice SDK for your environment. Learn about 
             environment variables, network settings, and circuit parameters.
           </p>
 
           {/* Environment Variables */}
           <section id="environment-variables" className="mb-12">
-            <h2 className="text-3xl font-semibold text-gray-100 mb-4 border-b border-gray-700 pb-2">
+            <h2 className="text-3xl font-semibold text-text-primary mb-4 border-b border-gray-700 pb-2">
               Environment Variables
             </h2>
-            <p className="text-gray-300 mb-6">
+            <p className="text-text-secondary mb-6">
               Configure the SDK using environment variables. These can be set in your .env file 
               or passed directly to your application.
             </p>
 
             <div className="overflow-x-auto mb-6">
-              <table className="w-full border-collapse bg-gray-800/50 border border-gray-700 rounded-lg">
+              <table className="w-full border-collapse bg-gray-800/50 border-l-2 border-white/10 ">
                 <thead>
                   <tr className="bg-gray-700/50">
-                    <th className="text-left p-4 text-gray-100 font-semibold border-b border-gray-700">
+                    <th className="text-left p-4 text-text-primary font-semibold border-b border-gray-700">
                       Variable
                     </th>
-                    <th className="text-left p-4 text-gray-100 font-semibold border-b border-gray-700">
+                    <th className="text-left p-4 text-text-primary font-semibold border-b border-gray-700">
                       Description
                     </th>
-                    <th className="text-left p-4 text-gray-100 font-semibold border-b border-gray-700">
+                    <th className="text-left p-4 text-text-primary font-semibold border-b border-gray-700">
                       Default
                     </th>
-                    <th className="text-left p-4 text-gray-100 font-semibold border-b border-gray-700">
+                    <th className="text-left p-4 text-text-primary font-semibold border-b border-gray-700">
                       Required
                     </th>
                   </tr>
@@ -63,92 +63,92 @@ export function ConfigurationPage() {
                     <td className="p-4">
                       <code className="text-blue-400">SOLANA_RPC_URL</code>
                     </td>
-                    <td className="p-4 text-gray-300">
+                    <td className="p-4 text-text-secondary">
                       Solana RPC endpoint URL
                     </td>
-                    <td className="p-4 text-gray-400">
+                    <td className="p-4 text-text-muted">
                       <code>https://api.devnet.solana.com</code>
                     </td>
-                    <td className="p-4 text-gray-400">No</td>
+                    <td className="p-4 text-text-muted">No</td>
                   </tr>
                   <tr className="border-b border-gray-700">
                     <td className="p-4">
                       <code className="text-blue-400">SOLANA_NETWORK</code>
                     </td>
-                    <td className="p-4 text-gray-300">
+                    <td className="p-4 text-text-secondary">
                       Network environment (devnet, testnet, mainnet-beta)
                     </td>
-                    <td className="p-4 text-gray-400">
+                    <td className="p-4 text-text-muted">
                       <code>devnet</code>
                     </td>
-                    <td className="p-4 text-gray-400">No</td>
+                    <td className="p-4 text-text-muted">No</td>
                   </tr>
                   <tr className="border-b border-gray-700">
                     <td className="p-4">
                       <code className="text-blue-400">CIRCUITS_PATH</code>
                     </td>
-                    <td className="p-4 text-gray-300">
+                    <td className="p-4 text-text-secondary">
                       Path to circuit files directory
                     </td>
-                    <td className="p-4 text-gray-400">
+                    <td className="p-4 text-text-muted">
                       <code>/circuits</code>
                     </td>
-                    <td className="p-4 text-gray-400">No</td>
+                    <td className="p-4 text-text-muted">No</td>
                   </tr>
                   <tr className="border-b border-gray-700">
                     <td className="p-4">
                       <code className="text-blue-400">PROGRAM_ID</code>
                     </td>
-                    <td className="p-4 text-gray-300">
+                    <td className="p-4 text-text-secondary">
                       Solstice program ID on Solana
                     </td>
-                    <td className="p-4 text-gray-400">
+                    <td className="p-4 text-text-muted">
                       <code>Built-in default</code>
                     </td>
-                    <td className="p-4 text-gray-400">No</td>
+                    <td className="p-4 text-text-muted">No</td>
                   </tr>
                   <tr className="border-b border-gray-700">
                     <td className="p-4">
                       <code className="text-blue-400">COMMITMENT_LEVEL</code>
                     </td>
-                    <td className="p-4 text-gray-300">
+                    <td className="p-4 text-text-secondary">
                       Transaction commitment level
                     </td>
-                    <td className="p-4 text-gray-400">
+                    <td className="p-4 text-text-muted">
                       <code>confirmed</code>
                     </td>
-                    <td className="p-4 text-gray-400">No</td>
+                    <td className="p-4 text-text-muted">No</td>
                   </tr>
                   <tr className="border-b border-gray-700">
                     <td className="p-4">
                       <code className="text-blue-400">ENABLE_LOGGING</code>
                     </td>
-                    <td className="p-4 text-gray-300">
+                    <td className="p-4 text-text-secondary">
                       Enable debug logging
                     </td>
-                    <td className="p-4 text-gray-400">
+                    <td className="p-4 text-text-muted">
                       <code>false</code>
                     </td>
-                    <td className="p-4 text-gray-400">No</td>
+                    <td className="p-4 text-text-muted">No</td>
                   </tr>
                   <tr>
                     <td className="p-4">
                       <code className="text-blue-400">PROOF_TIMEOUT</code>
                     </td>
-                    <td className="p-4 text-gray-300">
+                    <td className="p-4 text-text-secondary">
                       Proof generation timeout in milliseconds
                     </td>
-                    <td className="p-4 text-gray-400">
+                    <td className="p-4 text-text-muted">
                       <code>30000</code>
                     </td>
-                    <td className="p-4 text-gray-400">No</td>
+                    <td className="p-4 text-text-muted">No</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
             <div className="mb-6">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">Example .env File</h3>
+              <h3 className="text-xl font-semibold text-text-primary mb-3">Example .env File</h3>
               <CodeBlock
                 code={`# Solana Configuration
 SOLANA_RPC_URL=https://api.devnet.solana.com
@@ -166,7 +166,7 @@ PROOF_TIMEOUT=30000`}
               />
             </div>
 
-            <div className="bg-yellow-900/20 border border-yellow-700/50 rounded-lg p-4">
+            <div className="bg-yellow-900/20 border border-yellow-700/50  p-4">
               <p className="text-yellow-300 text-sm">
                 <strong>⚠️ Note for React/Next.js:</strong> Client-side environment variables 
                 must be prefixed with <code>REACT_APP_</code> (Create React App) or{' '}
@@ -177,18 +177,18 @@ PROOF_TIMEOUT=30000`}
 
           {/* Network Configuration */}
           <section id="network-configuration" className="mb-12">
-            <h2 className="text-3xl font-semibold text-gray-100 mb-4 border-b border-gray-700 pb-2">
+            <h2 className="text-3xl font-semibold text-text-primary mb-4 border-b border-gray-700 pb-2">
               Network Configuration
             </h2>
-            <p className="text-gray-300 mb-6">
+            <p className="text-text-secondary mb-6">
               Configure the SDK to work with different Solana networks: devnet for development, 
               testnet for testing, and mainnet-beta for production.
             </p>
 
             {/* Devnet Configuration */}
             <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-100 mb-3">Devnet (Development)</h3>
-              <p className="text-gray-300 mb-4">
+              <h3 className="text-2xl font-semibold text-text-primary mb-3">Devnet (Development)</h3>
+              <p className="text-text-secondary mb-4">
                 Use devnet for local development and testing. Devnet SOL is free and can be 
                 obtained from faucets.
               </p>
@@ -211,8 +211,8 @@ const sdk = new SolsticeSDK({
 console.log('Connected to devnet');`}
                 language="typescript"
               />
-              <div className="mt-4 bg-gray-800/50 border border-gray-700 rounded-lg p-4">
-                <p className="text-gray-300 text-sm">
+              <div className="mt-4 bg-gray-800/50 border-l-2 border-white/10  p-4">
+                <p className="text-text-secondary text-sm">
                   <strong>Devnet RPC:</strong> <code className="text-blue-400">https://api.devnet.solana.com</code>
                   <br />
                   <strong>Faucet:</strong> Use <code className="text-blue-400">solana airdrop</code> CLI or web faucets
@@ -222,8 +222,8 @@ console.log('Connected to devnet');`}
 
             {/* Testnet Configuration */}
             <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-100 mb-3">Testnet (Testing)</h3>
-              <p className="text-gray-300 mb-4">
+              <h3 className="text-2xl font-semibold text-text-primary mb-3">Testnet (Testing)</h3>
+              <p className="text-text-secondary mb-4">
                 Use testnet for integration testing and staging environments before mainnet deployment.
               </p>
               <CodeBlock
@@ -245,8 +245,8 @@ const sdk = new SolsticeSDK({
 console.log('Connected to testnet');`}
                 language="typescript"
               />
-              <div className="mt-4 bg-gray-800/50 border border-gray-700 rounded-lg p-4">
-                <p className="text-gray-300 text-sm">
+              <div className="mt-4 bg-gray-800/50 border-l-2 border-white/10  p-4">
+                <p className="text-text-secondary text-sm">
                   <strong>Testnet RPC:</strong> <code className="text-blue-400">https://api.testnet.solana.com</code>
                   <br />
                   <strong>Note:</strong> Testnet is reset periodically, so don't rely on persistent data
@@ -256,8 +256,8 @@ console.log('Connected to testnet');`}
 
             {/* Mainnet Configuration */}
             <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-100 mb-3">Mainnet-Beta (Production)</h3>
-              <p className="text-gray-300 mb-4">
+              <h3 className="text-2xl font-semibold text-text-primary mb-3">Mainnet-Beta (Production)</h3>
+              <p className="text-text-secondary mb-4">
                 Use mainnet-beta for production deployments. Requires real SOL for transaction fees.
               </p>
               <CodeBlock
@@ -279,8 +279,8 @@ const sdk = new SolsticeSDK({
 console.log('Connected to mainnet-beta');`}
                 language="typescript"
               />
-              <div className="mt-4 bg-red-900/20 border border-red-700/50 rounded-lg p-4">
-                <p className="text-red-300 text-sm">
+              <div className="mt-4 bg-red-900/20 border border-red-700/50  p-4">
+                <p className="text-text-secondary text-sm">
                   <strong>⚠️ Production Warning:</strong> Mainnet transactions use real SOL. 
                   Thoroughly test on devnet/testnet before deploying to mainnet. Consider using 
                   a custom RPC provider for better performance and reliability.
@@ -290,8 +290,8 @@ console.log('Connected to mainnet-beta');`}
 
             {/* Custom RPC */}
             <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-100 mb-3">Custom RPC Endpoint</h3>
-              <p className="text-gray-300 mb-4">
+              <h3 className="text-2xl font-semibold text-text-primary mb-3">Custom RPC Endpoint</h3>
+              <p className="text-text-secondary mb-4">
                 For production applications, use a dedicated RPC provider for better performance, 
                 reliability, and rate limits.
               </p>
@@ -315,11 +315,11 @@ const sdk = new SolsticeSDK({
 });`}
                 language="typescript"
               />
-              <div className="mt-4 bg-gray-800/50 border border-gray-700 rounded-lg p-4">
-                <p className="text-gray-300 text-sm mb-2">
+              <div className="mt-4 bg-gray-800/50 border-l-2 border-white/10  p-4">
+                <p className="text-text-secondary text-sm mb-2">
                   <strong>Recommended RPC Providers:</strong>
                 </p>
-                <ul className="list-disc list-inside text-gray-400 text-sm space-y-1">
+                <ul className="list-disc list-inside text-text-muted text-sm space-y-1">
                   <li>QuickNode - High-performance dedicated nodes</li>
                   <li>Alchemy - Enterprise-grade infrastructure</li>
                   <li>Helius - Optimized for Solana with enhanced APIs</li>
@@ -331,17 +331,17 @@ const sdk = new SolsticeSDK({
 
           {/* Circuit Configuration */}
           <section id="circuit-configuration" className="mb-12">
-            <h2 className="text-3xl font-semibold text-gray-100 mb-4 border-b border-gray-700 pb-2">
+            <h2 className="text-3xl font-semibold text-text-primary mb-4 border-b border-gray-700 pb-2">
               Circuit Configuration
             </h2>
-            <p className="text-gray-300 mb-6">
+            <p className="text-text-secondary mb-6">
               Configure circuit file paths and loading behavior for Zero-Knowledge proof generation.
             </p>
 
             {/* Circuit Path Configuration */}
             <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-100 mb-3">Circuit File Paths</h3>
-              <p className="text-gray-300 mb-4">
+              <h3 className="text-2xl font-semibold text-text-primary mb-3">Circuit File Paths</h3>
+              <p className="text-text-secondary mb-4">
                 The SDK requires access to circuit files (WASM and zkey) for proof generation. 
                 Configure the path based on your application structure.
               </p>
@@ -372,8 +372,8 @@ const sdk = new SolsticeSDK({
 
             {/* Circuit File Structure */}
             <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-100 mb-3">Required Circuit Files</h3>
-              <p className="text-gray-300 mb-4">
+              <h3 className="text-2xl font-semibold text-text-primary mb-3">Required Circuit Files</h3>
+              <p className="text-text-secondary mb-4">
                 Ensure your circuits directory contains all required files for each proof type:
               </p>
               <CodeBlock
@@ -402,21 +402,21 @@ const sdk = new SolsticeSDK({
 
             {/* Circuit Parameters */}
             <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-100 mb-3">Circuit Parameters</h3>
-              <p className="text-gray-300 mb-4">
+              <h3 className="text-2xl font-semibold text-text-primary mb-3">Circuit Parameters</h3>
+              <p className="text-text-secondary mb-4">
                 Advanced configuration for circuit loading and proof generation:
               </p>
               <div className="overflow-x-auto mb-6">
-                <table className="w-full border-collapse bg-gray-800/50 border border-gray-700 rounded-lg">
+                <table className="w-full border-collapse bg-gray-800/50 border-l-2 border-white/10 ">
                   <thead>
                     <tr className="bg-gray-700/50">
-                      <th className="text-left p-4 text-gray-100 font-semibold border-b border-gray-700">
+                      <th className="text-left p-4 text-text-primary font-semibold border-b border-gray-700">
                         Parameter
                       </th>
-                      <th className="text-left p-4 text-gray-100 font-semibold border-b border-gray-700">
+                      <th className="text-left p-4 text-text-primary font-semibold border-b border-gray-700">
                         Description
                       </th>
-                      <th className="text-left p-4 text-gray-100 font-semibold border-b border-gray-700">
+                      <th className="text-left p-4 text-text-primary font-semibold border-b border-gray-700">
                         Default
                       </th>
                     </tr>
@@ -426,10 +426,10 @@ const sdk = new SolsticeSDK({
                       <td className="p-4">
                         <code className="text-blue-400">circuitsPath</code>
                       </td>
-                      <td className="p-4 text-gray-300">
+                      <td className="p-4 text-text-secondary">
                         Base path to circuit files directory
                       </td>
-                      <td className="p-4 text-gray-400">
+                      <td className="p-4 text-text-muted">
                         <code>/circuits</code>
                       </td>
                     </tr>
@@ -437,10 +437,10 @@ const sdk = new SolsticeSDK({
                       <td className="p-4">
                         <code className="text-blue-400">wasmPath</code>
                       </td>
-                      <td className="p-4 text-gray-300">
+                      <td className="p-4 text-text-secondary">
                         Custom path to WASM files (overrides circuitsPath)
                       </td>
-                      <td className="p-4 text-gray-400">
+                      <td className="p-4 text-text-muted">
                         <code>undefined</code>
                       </td>
                     </tr>
@@ -448,10 +448,10 @@ const sdk = new SolsticeSDK({
                       <td className="p-4">
                         <code className="text-blue-400">zkeyPath</code>
                       </td>
-                      <td className="p-4 text-gray-300">
+                      <td className="p-4 text-text-secondary">
                         Custom path to zkey files (overrides circuitsPath)
                       </td>
-                      <td className="p-4 text-gray-400">
+                      <td className="p-4 text-text-muted">
                         <code>undefined</code>
                       </td>
                     </tr>
@@ -459,10 +459,10 @@ const sdk = new SolsticeSDK({
                       <td className="p-4">
                         <code className="text-blue-400">preloadCircuits</code>
                       </td>
-                      <td className="p-4 text-gray-300">
+                      <td className="p-4 text-text-secondary">
                         Preload circuits on SDK initialization
                       </td>
-                      <td className="p-4 text-gray-400">
+                      <td className="p-4 text-text-muted">
                         <code>false</code>
                       </td>
                     </tr>
@@ -474,17 +474,17 @@ const sdk = new SolsticeSDK({
 
           {/* Advanced Options */}
           <section id="advanced-options" className="mb-12">
-            <h2 className="text-3xl font-semibold text-gray-100 mb-4 border-b border-gray-700 pb-2">
+            <h2 className="text-3xl font-semibold text-text-primary mb-4 border-b border-gray-700 pb-2">
               Advanced Options
             </h2>
-            <p className="text-gray-300 mb-6">
+            <p className="text-text-secondary mb-6">
               Advanced configuration options for fine-tuning SDK behavior and performance.
             </p>
 
             {/* Complete Configuration Example */}
             <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-100 mb-3">Complete Configuration Example</h3>
-              <p className="text-gray-300 mb-4">
+              <h3 className="text-2xl font-semibold text-text-primary mb-3">Complete Configuration Example</h3>
+              <p className="text-text-secondary mb-4">
                 Example showing all available configuration options:
               </p>
               <CodeBlock
@@ -534,8 +534,8 @@ const sdk = new SolsticeSDK({
 
             {/* Performance Tuning */}
             <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-100 mb-3">Performance Tuning</h3>
-              <p className="text-gray-300 mb-4">
+              <h3 className="text-2xl font-semibold text-text-primary mb-3">Performance Tuning</h3>
+              <p className="text-text-secondary mb-4">
                 Optimize SDK performance for your use case:
               </p>
               <CodeBlock
@@ -576,8 +576,8 @@ const sdk = new SolsticeSDK({
 
             {/* Environment-Specific Configurations */}
             <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-100 mb-3">Environment-Specific Configurations</h3>
-              <p className="text-gray-300 mb-4">
+              <h3 className="text-2xl font-semibold text-text-primary mb-3">Environment-Specific Configurations</h3>
+              <p className="text-text-secondary mb-4">
                 Different configurations for development, staging, and production:
               </p>
               <CodeBlock
@@ -629,41 +629,41 @@ const sdk = new SolsticeSDK({
             </div>
 
             {/* Configuration Best Practices */}
-            <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-100 mb-3">Configuration Best Practices</h3>
-              <ul className="space-y-3 text-gray-300 text-sm">
+            <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
+              <h3 className="text-lg font-semibold text-text-primary mb-3">Configuration Best Practices</h3>
+              <ul className="space-y-3 text-text-secondary text-sm">
                 <li className="flex items-start gap-2">
-                  <span className="text-green-500 mt-1">✓</span>
+                  <span className="text-green-500 mt-1"></span>
                   <span>
                     <strong>Use environment variables</strong> for sensitive configuration like RPC URLs and program IDs
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-500 mt-1">✓</span>
+                  <span className="text-green-500 mt-1"></span>
                   <span>
                     <strong>Test on devnet first</strong> before deploying to testnet or mainnet
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-500 mt-1">✓</span>
+                  <span className="text-green-500 mt-1"></span>
                   <span>
                     <strong>Use custom RPC providers</strong> in production for better reliability and performance
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-500 mt-1">✓</span>
+                  <span className="text-green-500 mt-1"></span>
                   <span>
                     <strong>Enable logging in development</strong> to debug issues, but disable in production
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-500 mt-1">✓</span>
+                  <span className="text-green-500 mt-1"></span>
                   <span>
                     <strong>Preload circuits</strong> if you need fast first-proof generation, otherwise lazy load
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-500 mt-1">✓</span>
+                  <span className="text-green-500 mt-1"></span>
                   <span>
                     <strong>Set appropriate timeouts</strong> based on your network conditions and user experience requirements
                   </span>

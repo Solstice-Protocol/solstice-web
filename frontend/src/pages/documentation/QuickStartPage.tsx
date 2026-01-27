@@ -1,6 +1,5 @@
 import { Breadcrumb } from '../../components/documentation/Breadcrumb';
 import { CodeBlock } from '../../components/documentation/CodeBlock';
-import { AlertCircle, CheckCircle } from 'lucide-react';
 
 /**
  * QuickStartPage Component
@@ -21,9 +20,9 @@ export function QuickStartPage() {
         the complete integration flow from setup to on-chain verification.
       </p>
 
-      <div className="bg-vintage-grape-900/20 border border-vintage-grape-700/30 rounded-xl p-6 mb-12">
+      <div className="p-5 border-l-2 border-vintage-grape-500/30 bg-white/[0.02] mb-12">
         <div className="flex items-start gap-4">
-          <AlertCircle className="w-5 h-5 text-vintage-grape-300 flex-shrink-0 mt-1" />
+          
           <div>
             <div className="font-medium text-vintage-grape-200 mb-2">Prerequisites</div>
             <p className="text-vintage-grape-100/80 text-sm font-light leading-relaxed">
@@ -83,19 +82,19 @@ function App() {
             filename="App.tsx"
           />
 
-          <div className="mt-6 bg-white/5 border border-white/10 rounded-xl p-6">
+          <div className="mt-6 p-5 border-l-2 border-white/10 bg-white/[0.02]">
             <h4 className="font-medium text-text-primary mb-3">What's happening here?</h4>
             <ul className="space-y-3 text-text-muted text-sm font-light">
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-4 h-4 text-vintage-grape-400 flex-shrink-0 mt-1" />
+                
                 <span>We import the SolsticeSDK class and Solana wallet hooks</span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-4 h-4 text-vintage-grape-400 flex-shrink-0 mt-1" />
+                
                 <span>The SDK is initialized when a wallet connects</span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-4 h-4 text-vintage-grape-400 flex-shrink-0 mt-1" />
+                
                 <span>We pass the connection, wallet, and circuits path to the SDK</span>
               </li>
             </ul>
@@ -163,7 +162,7 @@ function ProofGenerator({ sdk }: { sdk: SolsticeSDK }) {
           value={qrData}
           onChange={(e) => setQrData(e.target.value)}
           placeholder="Paste Aadhaar QR code data here..."
-          className="w-full p-3 border rounded-lg"
+          className="w-full p-3 border "
           rows={4}
         />
       </div>
@@ -171,21 +170,21 @@ function ProofGenerator({ sdk }: { sdk: SolsticeSDK }) {
       <button
         onClick={handleGenerateProof}
         disabled={!qrData || loading}
-        className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+        className="px-6 py-3 bg-blue-600 text-white  hover:bg-blue-700 disabled:opacity-50"
       >
         {loading ? 'Generating Proof...' : 'Generate Age Proof'}
       </button>
 
       {error && (
-        <div className="p-4 bg-red-900/20 border border-red-700 rounded-lg text-red-300">
+        <div className="p-4 bg-red-900/20 border border-red-700  text-text-secondary">
           {error}
         </div>
       )}
 
       {proof && (
-        <div className="p-4 bg-green-900/20 border border-green-700 rounded-lg">
+        <div className="p-4 bg-green-900/20 border border-green-700 ">
           <h3 className="font-semibold text-green-300 mb-2">Proof Generated!</h3>
-          <pre className="text-xs text-gray-300 overflow-auto">
+          <pre className="text-xs text-text-secondary overflow-auto">
             {JSON.stringify(proof, null, 2)}
           </pre>
         </div>
@@ -197,23 +196,23 @@ function ProofGenerator({ sdk }: { sdk: SolsticeSDK }) {
             filename="ProofGenerator.tsx"
           />
 
-          <div className="mt-6 bg-white/5 border border-white/10 rounded-xl p-6">
+          <div className="mt-6 p-5 border-l-2 border-white/10 bg-white/[0.02]">
             <h4 className="font-medium text-text-primary mb-3">Key Points</h4>
             <ul className="space-y-3 text-text-muted text-sm font-light">
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-4 h-4 text-vintage-grape-400 flex-shrink-0 mt-1" />
+                
                 <span><strong>parseAadhaarQR():</strong> Extracts and validates data from the QR code</span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-4 h-4 text-vintage-grape-400 flex-shrink-0 mt-1" />
+                
                 <span><strong>generateAgeProof():</strong> Creates a ZK proof that the user meets the age requirement</span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-4 h-4 text-vintage-grape-400 flex-shrink-0 mt-1" />
+                
                 <span>The proof generation takes approximately 5 seconds</span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-4 h-4 text-vintage-grape-400 flex-shrink-0 mt-1" />
+                
                 <span>Error handling ensures a smooth user experience</span>
               </li>
             </ul>
@@ -336,23 +335,23 @@ const uniquenessProof = await sdk.generateUniquenessProof({
             language="typescript"
           />
 
-          <div className="mt-6 bg-white/5 border border-white/10 rounded-xl p-6">
+          <div className="mt-6 p-5 border-l-2 border-white/10 bg-white/[0.02]">
             <h4 className="font-medium text-text-primary mb-3">Verification Process</h4>
             <ul className="space-y-3 text-text-muted text-sm font-light">
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-4 h-4 text-vintage-grape-400 flex-shrink-0 mt-1" />
+                
                 <span>The proof is submitted to the Solstice Solana program</span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-4 h-4 text-vintage-grape-400 flex-shrink-0 mt-1" />
+                
                 <span>The program verifies the proof using the Groth16 verifier</span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-4 h-4 text-vintage-grape-400 flex-shrink-0 mt-1" />
+                
                 <span>Verification happens in milliseconds on-chain</span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-4 h-4 text-vintage-grape-400 flex-shrink-0 mt-1" />
+                
                 <span>The transaction signature can be used as proof of verification</span>
               </li>
             </ul>
@@ -445,9 +444,9 @@ function CompleteExample() {
             filename="CompleteExample.tsx"
           />
 
-          <div className="mt-8 bg-gradient-to-r from-vintage-grape-900/40 to-stone-brown-900/40 border border-vintage-grape-700/30 rounded-xl p-8">
+          <div className="mt-8 bg-gradient-to-r from-vintage-grape-900/40 to-stone-brown-900/40 border border-vintage-grape-700/30  p-8">
             <h4 className="font-medium text-vintage-grape-200 mb-4 flex items-center gap-3 text-lg">
-              <CheckCircle className="w-5 h-5" />
+              
               Complete Flow Summary
             </h4>
             <ol className="space-y-3 text-text-secondary text-sm list-decimal list-inside font-light">
@@ -469,7 +468,7 @@ function CompleteExample() {
         </h2>
 
         <div className="space-y-6">
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+          <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
             <h4 className="font-medium text-text-primary mb-2">Use Devnet for Testing</h4>
             <p className="text-text-muted text-sm mb-3 font-light">
               Always test on Solana devnet before deploying to mainnet:
@@ -483,7 +482,7 @@ VITE_SOLANA_NETWORK=devnet`}
             />
           </div>
 
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+          <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
             <h4 className="font-medium text-text-primary mb-2">Test with Sample Data</h4>
             <p className="text-text-secondary text-sm font-light">
               The SDK includes test utilities for generating sample Aadhaar data. This is useful
@@ -491,7 +490,7 @@ VITE_SOLANA_NETWORK=devnet`}
             </p>
           </div>
 
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+          <div className="p-5 border-l-2 border-white/10 bg-white/[0.02]">
             <h4 className="font-medium text-text-primary mb-2">Monitor Performance</h4>
             <p className="text-text-secondary text-sm font-light">
               Proof generation should take approximately 5 seconds. If it takes significantly longer,
@@ -509,23 +508,23 @@ VITE_SOLANA_NETWORK=devnet`}
         </h2>
 
         <div className="space-y-4">
-          <div className="bg-red-900/10 border border-red-700/30 rounded-xl p-6">
-            <h4 className="font-medium text-red-200 mb-2">"Circuit files not found"</h4>
-            <p className="text-red-100/80 text-sm font-light">
+          <div className="p-5 border-l-2 border-vintage-grape-500/30 bg-white/[0.02]">
+            <h4 className="font-medium text-text-muted mb-2">"Circuit files not found"</h4>
+            <p className="text-text-muted text-sm font-light">
               Ensure circuit files are in your public/circuits directory and the path is configured correctly.
             </p>
           </div>
 
-          <div className="bg-red-900/10 border border-red-700/30 rounded-xl p-6">
-            <h4 className="font-medium text-red-200 mb-2">"Wallet not connected"</h4>
-            <p className="text-red-100/80 text-sm font-light">
+          <div className="p-5 border-l-2 border-vintage-grape-500/30 bg-white/[0.02]">
+            <h4 className="font-medium text-text-muted mb-2">"Wallet not connected"</h4>
+            <p className="text-text-muted text-sm font-light">
               Make sure the user has connected their wallet before initializing the SDK.
             </p>
           </div>
 
-          <div className="bg-red-900/10 border border-red-700/30 rounded-xl p-6">
-            <h4 className="font-medium text-red-200 mb-2">"Transaction failed"</h4>
-            <p className="text-red-100/80 text-sm font-light">
+          <div className="p-5 border-l-2 border-vintage-grape-500/30 bg-white/[0.02]">
+            <h4 className="font-medium text-text-muted mb-2">"Transaction failed"</h4>
+            <p className="text-text-muted text-sm font-light">
               Check that you're using the correct program ID for your network (devnet/mainnet) and
               that the wallet has sufficient SOL for transaction fees.
             </p>
@@ -546,7 +545,7 @@ VITE_SOLANA_NETWORK=devnet`}
         <div className="grid gap-4 md:grid-cols-2">
           <a
             href="/documentation/api-reference"
-            className="block bg-white/5 border border-white/10 hover:border-vintage-grape-500/50 rounded-xl p-6 transition-all duration-300 hover:bg-white/[0.08] group"
+            className="block bg-white/5 border border-white/10 hover:border-vintage-grape-500/50  p-6 transition-all duration-300 hover:bg-white/[0.08] group"
           >
             <h3 className="text-lg font-medium text-text-primary group-hover:text-vintage-grape-200 mb-2 transition-colors">
               API Reference
@@ -558,7 +557,7 @@ VITE_SOLANA_NETWORK=devnet`}
 
           <a
             href="/documentation/integration-guide"
-            className="block bg-white/5 border border-white/10 hover:border-vintage-grape-500/50 rounded-xl p-6 transition-all duration-300 hover:bg-white/[0.08] group"
+            className="block bg-white/5 border border-white/10 hover:border-vintage-grape-500/50  p-6 transition-all duration-300 hover:bg-white/[0.08] group"
           >
             <h3 className="text-lg font-medium text-text-primary group-hover:text-vintage-grape-200 mb-2 transition-colors">
               Integration Guide
@@ -570,7 +569,7 @@ VITE_SOLANA_NETWORK=devnet`}
 
           <a
             href="/documentation/examples"
-            className="block bg-white/5 border border-white/10 hover:border-vintage-grape-500/50 rounded-xl p-6 transition-all duration-300 hover:bg-white/[0.08] group"
+            className="block bg-white/5 border border-white/10 hover:border-vintage-grape-500/50  p-6 transition-all duration-300 hover:bg-white/[0.08] group"
           >
             <h3 className="text-lg font-medium text-text-primary group-hover:text-vintage-grape-200 mb-2 transition-colors">
               Examples
@@ -582,7 +581,7 @@ VITE_SOLANA_NETWORK=devnet`}
 
           <a
             href="/documentation/security"
-            className="block bg-white/5 border border-white/10 hover:border-vintage-grape-500/50 rounded-xl p-6 transition-all duration-300 hover:bg-white/[0.08] group"
+            className="block bg-white/5 border border-white/10 hover:border-vintage-grape-500/50  p-6 transition-all duration-300 hover:bg-white/[0.08] group"
           >
             <h3 className="text-lg font-medium text-text-primary group-hover:text-vintage-grape-200 mb-2 transition-colors">
               Security Best Practices

@@ -1,41 +1,51 @@
-import anime from 'animejs/lib/anime.es.js';
+import { TextHoverEffect, FooterBackgroundGradient } from './ui/hover-footer';
 
 const Footer = () => {
-    const handleEnter = (e: React.MouseEvent) => {
-        anime({
-            targets: e.target,
-            scale: 1.1,
-            color: '#f4f3f1', // stone-brown-50
-            duration: 400
-        });
-    };
-
-    const handleLeave = (e: React.MouseEvent) => {
-        anime({
-            targets: e.target,
-            scale: 1,
-            color: '#bab4ab', // stone-brown-300
-            duration: 400
-        });
-    };
-
     return (
-        <footer className="py-12 px-6 bg-transparent text-center relative z-10">
-            <div className="text-text-muted font-serif text-sm tracking-widest uppercase mb-4">
-                Solstice Protocol © 2026
-            </div>
-            <div className="flex justify-center gap-6 text-text-secondary font-serif italic text-sm">
-                {['Documentation', 'GitHub', 'Twitter'].map((link) => (
-                    <a
-                        key={link}
-                        href="#"
-                        onMouseEnter={handleEnter}
-                        onMouseLeave={handleLeave}
-                        className="transition-colors"
-                    >
-                        {link}
-                    </a>
-                ))}
+        <footer className="relative py-24 px-6 bg-transparent overflow-hidden">
+            <FooterBackgroundGradient />
+
+            {/* Main Content */}
+            <div className="relative z-10 max-w-7xl mx-auto">
+                {/* Big Hover Text */}
+                <div className="h-32 md:h-48 lg:h-64 mb-12">
+                    <TextHoverEffect
+                        text="SOLSTICE"
+                        duration={0.15}
+                        className="w-full h-full"
+                    />
+                </div>
+
+                {/* Links */}
+                <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 mb-12">
+                    {[
+                        { name: 'Documentation', href: '/documentation' },
+                        { name: 'GitHub', href: 'https://github.com/solstice-protocol' },
+                        { name: 'Twitter', href: 'https://twitter.com/solstice' },
+                    ].map((link) => (
+                        <a
+                            key={link.name}
+                            href={link.href}
+                            className="text-vintage-grape-300 hover:text-vintage-grape-100 font-futuristic text-sm tracking-[0.2em] uppercase transition-all duration-300 hover:tracking-[0.3em] relative group"
+                        >
+                            {link.name}
+                            <span className="absolute -bottom-1 left-0 w-0 h-px bg-vintage-grape-400 group-hover:w-full transition-all duration-300" />
+                        </a>
+                    ))}
+                </div>
+
+                {/* Divider */}
+                <div className="w-full h-px bg-gradient-to-r from-transparent via-vintage-grape-400/30 to-transparent mb-8" />
+
+                {/* Copyright */}
+                <div className="text-center">
+                    <p className="text-vintage-grape-400 font-futuristic text-xs tracking-[0.3em] uppercase">
+                        Solstice Protocol © {new Date().getFullYear()}
+                    </p>
+                    <p className="text-vintage-grape-600 font-futuristic text-xs tracking-wider mt-2">
+                        Zero-Knowledge Identity on Solana
+                    </p>
+                </div>
             </div>
         </footer>
     );
