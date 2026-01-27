@@ -5,9 +5,8 @@ import Features from './components/Features';
 import UseCases from './components/UseCases';
 import TechnicalSpecs from './components/TechnicalSpecs';
 import Footer from './components/Footer';
-import Background3D from './components/Background3D';
 import DeveloperSDK from './components/DeveloperSDK';
-import Trust from './components/Trust';
+import FAQ from './components/FAQ';
 import { DocumentationLayout } from './pages/documentation/DocumentationLayout';
 import { OverviewPage } from './pages/documentation/OverviewPage';
 import { InstallationPage } from './pages/documentation/InstallationPage';
@@ -25,7 +24,6 @@ import './index.css';
 function HomePage() {
   return (
     <div className="min-h-screen bg-primary text-text-primary font-serif selection:bg-vintage-grape-700 selection:text-stone-brown-50 relative">
-      <Background3D />
       <Navigation />
       <main className="relative z-10">
         <Hero />
@@ -34,7 +32,7 @@ function HomePage() {
         <TechnicalSpecs />
         <DeveloperSDK />
         <UseCases />
-        <Trust />
+        <FAQ />
       </main>
       <div className="relative z-10">
         <Footer />

@@ -59,7 +59,7 @@ const Navigation = () => {
                     </div>
 
                     <a
-                        href="#launch"
+                        href="https://app.solsticeprotocol.dev"
                         className="gradient-bg px-5 py-2 rounded-full text-xs font-semibold text-white shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:scale-105 transition-all duration-300 ml-2"
                     >
                         Launch App

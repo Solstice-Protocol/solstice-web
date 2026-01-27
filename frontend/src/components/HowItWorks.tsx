@@ -1,57 +1,70 @@
-import { useEffect } from 'react';
-import anime from 'animejs/lib/anime.es.js';
-import PrivacyArchitecture from './diagrams/PrivacyArchitecture';
+import { motion } from 'framer-motion';
+import ArchitectureFlow from './diagrams/ArchitectureFlow';
 
 const HowItWorks = () => {
-    useEffect(() => {
-        // Complex Path Animation
-        const tl = anime.timeline({
-            easing: 'linear',
-            loop: true
-        });
-
-        tl.add({
-            targets: '.data-node',
-            scale: [1, 1.2, 1],
-            duration: 1000,
-            delay: anime.stagger(200)
-        });
-
-        anime({
-            targets: '.connection-line',
-            strokeDashoffset: [anime.setDashoffset, 0],
-            easing: 'easeInOutSine',
-            duration: 1500,
-            delay: function (_el: any, i: number) { return i * 250 },
-            direction: 'alternate',
-            loop: true
-        });
-    }, []);
-
     return (
-        <section className="py-24 px-6 bg-transparent">
-            <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl font-normal mb-12 italic text-text-primary pb-4 inline-block">
+        <section id="architecture" className="py-32 px-6 bg-transparent">
+            <div className="max-w-6xl mx-auto">
+                <motion.h2 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-4xl md:text-5xl font-normal mb-16 italic text-text-primary"
+                >
                     Architecture
-                </h2>
+                </motion.h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
                     {/* Text Content */}
-                    <div className="space-y-8 font-serif leading-relaxed text-text-secondary">
-                        <p>
-                            <strong className="text-text-primary block mb-2 text-xl">1. Client-Side Generation</strong>
-                            Users generate zero-knowledge proofs locally. PII from Aadhaar/Passport never leaves the device.
-                        </p>
-                        <p>
-                            <strong className="text-text-primary block mb-2 text-xl">2. Compressed State</strong>
-                            Leveraging Light Protocol to compress identity state trees, reducing storage costs by 5000x on Solana.
-                        </p>
-                    </div>
+                    <motion.div 
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="space-y-8 font-serif leading-relaxed text-text-secondary"
+                    >
+                        <div className="group">
+                            <div className="flex items-start gap-4 mb-3">
+                                <span className="text-3xl font-light text-accent-grape">01</span>
+                                <strong className="text-text-primary text-2xl font-normal mt-1">Client-Side Generation</strong>
+                            </div>
+                            <p className="pl-16">
+                                Users generate zero-knowledge proofs locally. PII from Aadhaar never leaves the device. Complete privacy preservation at the source.
+                            </p>
+                        </div>
 
-                    {/* Animated Diagram Area */}
-                    <div className="w-full">
-                        <PrivacyArchitecture />
-                    </div>
+                        <div className="group">
+                            <div className="flex items-start gap-4 mb-3">
+                                <span className="text-3xl font-light text-accent-grape">02</span>
+                                <strong className="text-text-primary text-2xl font-normal mt-1">Compressed State</strong>
+                            </div>
+                            <p className="pl-16">
+                                Leveraging Light Protocol to compress identity state trees, reducing storage costs by 5000x on Solana.
+                            </p>
+                        </div>
+
+                        <div className="group">
+                            <div className="flex items-start gap-4 mb-3">
+                                <span className="text-3xl font-light text-accent-grape">03</span>
+                                <strong className="text-text-primary text-2xl font-normal mt-1">On-Chain Verification</strong>
+                            </div>
+                            <p className="pl-16">
+                                Native BPF verification using Groth16 SNARKs. Sub-millisecond finality with minimal transaction costs.
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    {/* Diagram */}
+                    <motion.div 
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="w-full"
+                    >
+                        <ArchitectureFlow />
+                    </motion.div>
                 </div>
             </div>
         </section>

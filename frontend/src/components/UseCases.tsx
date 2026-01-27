@@ -74,7 +74,7 @@ const UseCases = () => {
 
                 <div className="flex flex-col md:flex-row gap-8 bg-black/40 backdrop-blur-xl border border-white/5 rounded-3xl p-8 md:p-12 shadow-2xl overflow-hidden relative">
                     {/* Decorative Scan Line */}
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent-grape to-transparent opacity-50 animate-pulse" />
+                    <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-accent-grape to-transparent opacity-50 animate-pulse" />
 
                     {/* Left: Terminal Menu */}
                     <div className="w-full md:w-1/3 flex flex-col gap-2 relative z-10" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
@@ -103,7 +103,6 @@ const UseCases = () => {
                         <div className="absolute top-0 right-0 text-text-muted text-[10px] font-mono tracking-widest opacity-50">
                             STATUS: VERIFIED
                         </div>
-
 
                         <h3 ref={titleRef} className="text-3xl md:text-5xl font-serif italic text-text-primary mb-6">
                             {cases[activeIndex].title}
