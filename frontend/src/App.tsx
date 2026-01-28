@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import LoadingScreen from './components/LoadingScreen';
+import { WalletContextProvider } from './contexts/WalletProvider';
 
 import Lenis from 'lenis';
 import Hero from './components/Hero';
@@ -89,26 +90,28 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Home Route */}
-        <Route path="/" element={<HomePage />} />
+    <WalletContextProvider>
+      <BrowserRouter>
+        <Routes>
+          {/* Home Route */}
+          <Route path="/" element={<HomePage />} />
 
-        {/* Documentation Routes */}
-        <Route path="/documentation" element={<DocumentationLayout />}>
-          <Route index element={<OverviewPage />} />
-          <Route path="installation" element={<InstallationPage />} />
-          <Route path="quick-start" element={<QuickStartPage />} />
-          <Route path="api-reference" element={<ApiReferencePage />} />
-          <Route path="integration-guide" element={<IntegrationGuidePage />} />
-          <Route path="examples" element={<ExamplesPage />} />
-          <Route path="configuration" element={<ConfigurationPage />} />
-          <Route path="error-handling" element={<ErrorHandlingPage />} />
-          <Route path="security" element={<SecurityPage />} />
-          <Route path="performance" element={<PerformancePage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+          {/* Documentation Routes */}
+          <Route path="/documentation" element={<DocumentationLayout />}>
+            <Route index element={<OverviewPage />} />
+            <Route path="installation" element={<InstallationPage />} />
+            <Route path="quick-start" element={<QuickStartPage />} />
+            <Route path="api-reference" element={<ApiReferencePage />} />
+            <Route path="integration-guide" element={<IntegrationGuidePage />} />
+            <Route path="examples" element={<ExamplesPage />} />
+            <Route path="configuration" element={<ConfigurationPage />} />
+            <Route path="error-handling" element={<ErrorHandlingPage />} />
+            <Route path="security" element={<SecurityPage />} />
+            <Route path="performance" element={<PerformancePage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </WalletContextProvider>
   );
 }
 

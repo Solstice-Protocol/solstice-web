@@ -950,7 +950,7 @@ try {
                 className="block bg-gray-800/50 border-l-2 border-white/10 hover:border-blue-500  p-6 transition-colors group"
               >
                 <h3 className="text-lg font-semibold text-text-primary group-hover:text-blue-400 mb-2">
-                  🔧 Integration Guide
+                   Integration Guide
                 </h3>
                 <p className="text-text-muted text-sm">
                   Learn framework-specific integration patterns.
