@@ -1,66 +1,88 @@
 import { motion } from 'framer-motion';
 import { useState, useMemo } from 'react';
 
-// CSS 3D Cube that flips on hover - only the hovered cube flips
+// 2D Grid Cube with directional color trail
 const GridCube = ({
     size,
 }: {
     size: number;
 }) => {
-    const [isHovered, setIsHovered] = useState(false);
+    const [hoverState, setHoverState] = useState<{
+        active: boolean;
+        direction: 'top' | 'bottom' | 'left' | 'right' | null;
+    }>({ active: false, direction: null });
+
+    const handleMouseEnter = (e: React.MouseEvent<HTMLLIElement>) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        // Calculate angle and determine direction
+        const angle = Math.atan2(y, x);
+        const normalizedAngle = (angle * 180 / Math.PI + 180) % 360;
+
+        // 45-135: Bottom, 135-225: Left, 225-315: Top, 315-45: Right
+        let direction: 'top' | 'bottom' | 'left' | 'right';
+
+        if (normalizedAngle >= 45 && normalizedAngle < 135) {
+            direction = 'bottom';
+        } else if (normalizedAngle >= 135 && normalizedAngle < 225) {
+            direction = 'left';
+        } else if (normalizedAngle >= 225 && normalizedAngle < 315) {
+            direction = 'top';
+        } else {
+            direction = 'right';
+        }
+
+        setHoverState({ active: true, direction });
+    };
+
+    const handleMouseLeave = () => {
+        setHoverState(prev => ({ ...prev, active: false }));
+    };
+
+    const getBackgroundColor = () => {
+        if (!hoverState.direction) return 'transparent'; // Default state
+
+        switch (hoverState.direction) {
+            case 'top': return 'var(--color-vintage-grape-500)';
+            case 'bottom': return '#60a5fa'; // Blue
+            case 'left': return '#f472b6'; // Pink
+            case 'right': return '#facc15'; // Yellow
+            default: return 'transparent';
+        }
+    };
 
     return (
         <li
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            className="inline-block"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="inline-block relative"
             style={{
-                perspective: '1000px',
                 width: `${size}px`,
                 height: `${size}px`,
             }}
         >
-            <span
-                className="relative inline-block w-full h-full"
+            <div
+                className="absolute inset-0"
                 style={{
-                    transformStyle: 'preserve-3d',
-                    transformOrigin: '50% 0',
-                    transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
-                    transform: isHovered
-                        ? `rotateX(90deg) translateY(-${size * 0.55}px)`
-                        : 'rotateX(0deg)',
+                    backgroundColor: hoverState.active ? getBackgroundColor() : 'transparent',
+                    opacity: hoverState.active ? 0.6 : 0, // Fade opacity for trail
+                    border: '1px solid rgba(255, 255, 255, 0.03)',
+                    // Instant in, slow out (trail effect)
+                    transition: hoverState.active
+                        ? 'background-color 0s, opacity 0s'
+                        : 'background-color 0.8s, opacity 0.8s',
                 }}
-            >
-                {/* Front face - very subtle */}
-                <div
-                    className="absolute inset-0"
-                    style={{
-                        backgroundColor: 'rgba(255, 255, 255, 0.015)',
-                        border: '1px solid rgba(255, 255, 255, 0.03)',
-                    }}
-                />
-                {/* Bottom face (revealed on flip) */}
-                <div
-                    className="absolute left-0 w-full"
-                    style={{
-                        top: '100%',
-                        height: '100%',
-                        backgroundColor: 'rgba(80, 80, 80, 0.5)',
-                        border: '1px solid rgba(100, 100, 100, 0.6)',
-                        boxShadow: '0 0 15px rgba(80, 80, 80, 0.4)',
-                        transform: 'rotateX(-90deg)',
-                        transformOrigin: '50% 0',
-                    }}
-                />
-            </span>
+            />
         </li>
     );
 };
 
-// Cube Grid - simple, no cascade effect
+// Cube Grid - high density
 const CubeGrid = () => {
     // Calculate grid dimensions based on viewport
-    const cubeSize = 40; // Fixed square cube size
+    const cubeSize = 25; // Smaller size = more cubes
     const cols = Math.ceil(window.innerWidth / cubeSize) + 2;
     const rows = Math.ceil(window.innerHeight / cubeSize) + 2;
     const totalCubes = cols * rows;
@@ -71,9 +93,12 @@ const CubeGrid = () => {
     );
 
     return (
-        <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            {/* pointer-events-none on container, auto on children to allow clicks pass through gaps if needed, 
+                but here we want hover. 
+            */}
             <ul
-                className="list-none p-0 m-0 flex flex-wrap"
+                className="list-none p-0 m-0 flex flex-wrap pointer-events-auto"
                 style={{
                     width: `${cols * cubeSize}px`,
                 }}
@@ -88,11 +113,10 @@ const CubeGrid = () => {
         </div>
     );
 };
-
 const Hero = () => {
     return (
         <section className="min-h-screen flex flex-col items-center justify-center bg-transparent px-4 relative overflow-hidden">
-            {/* Grid background with 3D flip cubes */}
+            {/* Grid background with trail effect */}
             <CubeGrid />
 
             {/* Content */}
@@ -119,9 +143,7 @@ const Hero = () => {
                     <p className="text-sm md:text-base font-futuristic font-light text-text-muted tracking-[0.3em] uppercase">
                         Private Identity Protocol
                     </p>
-                    <p className="text-xs md:text-sm font-futuristic font-light text-text-muted tracking-[0.2em] uppercase mt-2">
-                        Zero-Knowledge • Solana • Decentralized
-                    </p>
+
                 </motion.div>
 
                 {/* Minimal button */}

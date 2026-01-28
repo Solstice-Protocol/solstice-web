@@ -12,10 +12,6 @@ const faqs = [
         answer: "No. You don't need deep zero-knowledge cryptography expertise. Our SDK abstracts the complexity, providing simple APIs for proof generation and verification. We welcome developers at all levels, from beginners to experts."
     },
     {
-        question: "What stage should my project be at?",
-        answer: "We accept projects at any stage: idea, prototype, or already live. The goal is to accelerate your development with privacy-preserving identity verification, regardless of your current progress."
-    },
-    {
         question: "How does the verification process work?",
         answer: "The protocol uses Groth16 SNARKs for zero-knowledge proofs. Users generate proofs client-side from their Aadhaar QR codes, which are then verified on-chain in under 1ms. The entire process ensures that personal information never leaves the user's device."
     },

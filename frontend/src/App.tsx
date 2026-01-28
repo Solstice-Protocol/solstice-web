@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import LoadingScreen from './components/LoadingScreen';
+
 import Lenis from 'lenis';
 import Hero from './components/Hero';
 import HowItWorks from './components/HowItWorks';
@@ -22,6 +23,7 @@ import { ErrorHandlingPage } from './pages/documentation/ErrorHandlingPage';
 import { SecurityPage } from './pages/documentation/SecurityPage';
 import { PerformancePage } from './pages/documentation/PerformancePage';
 import Navigation from './components/Navigation';
+import ScrollLogo from './components/ScrollLogo';
 import './index.css';
 
 function HomePage() {
@@ -53,6 +55,7 @@ function HomePage() {
 
   return (
     <div className="min-h-screen bg-primary text-text-primary font-serif selection:bg-vintage-grape-700 selection:text-stone-brown-50 relative">
+      <ScrollLogo />
       <Navigation />
       <main className="relative z-10">
         <Hero />
