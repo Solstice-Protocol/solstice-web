@@ -1,6 +1,7 @@
 import { Breadcrumb } from '../../components/documentation/Breadcrumb';
 import { CodeBlock } from '../../components/documentation/CodeBlock';
 import { TableOfContents } from '../../components/documentation/TableOfContents';
+import { Zap, TrendingUp, Database } from 'lucide-react';
 
 /**
  * PerformancePage Component
@@ -24,10 +25,10 @@ export function PerformancePage() {
       <div className="flex gap-8">
         <div className="flex-1 min-w-0">
           <Breadcrumb items={[{ label: 'Documentation', path: '/documentation' }, { label: 'Performance' }]} />
-          
+
           <h1 className="text-4xl font-bold text-text-primary mb-4">Performance</h1>
           <p className="text-xl text-text-secondary mb-8">
-            Comprehensive guide to performance characteristics, optimization techniques, and 
+            Comprehensive guide to performance characteristics, optimization techniques, and
             best practices for building high-performance applications with the Solstice SDK.
           </p>
 
@@ -37,7 +38,7 @@ export function PerformancePage() {
               Performance Benchmarks
             </h2>
             <p className="text-text-secondary mb-6">
-              Real-world performance metrics for proof generation and verification across 
+              Real-world performance metrics for proof generation and verification across
               different devices and configurations.
             </p>
 
@@ -145,7 +146,7 @@ export function PerformancePage() {
 
               <div className="mt-4 bg-gray-800/50 border-l-2 border-white/10  p-4">
                 <p className="text-text-muted text-sm">
-                  <strong>Test Configuration:</strong> Chrome 120, WebAssembly enabled, 
+                  <strong>Test Configuration:</strong> Chrome 120, WebAssembly enabled,
                   circuits preloaded. Times measured from parseAadhaarQR to proof generation complete.
                 </p>
               </div>
@@ -207,8 +208,8 @@ export function PerformancePage() {
 
               <div className="mt-4 bg-blue-900/20 border border-blue-700/50  p-4">
                 <p className="text-blue-300 text-sm">
-                  <strong>Note:</strong> USD costs calculated at $100/SOL. Actual costs may vary 
-                  based on network congestion and SOL price. All operations are extremely cost-effective 
+                  <strong>Note:</strong> USD costs calculated at $100/SOL. Actual costs may vary
+                  based on network congestion and SOL price. All operations are extremely cost-effective
                   compared to traditional verification methods.
                 </p>
               </div>
@@ -229,7 +230,7 @@ export function PerformancePage() {
                 <h3 className="text-lg font-semibold text-text-primary mb-3">Compressed Proof</h3>
                 <div className="text-4xl font-bold text-purple-400 mb-2">256 bytes</div>
                 <p className="text-text-secondary text-sm mb-3">
-                  Groth16 proofs are compressed to just 256 bytes, making them extremely 
+                  Groth16 proofs are compressed to just 256 bytes, making them extremely
                   efficient for on-chain storage.
                 </p>
                 <div className="space-y-1 text-xs text-text-muted">
@@ -352,8 +353,8 @@ const sdk = new SolsticeSDK({
 
               <div className="mt-4 bg-gray-800/50 border-l-2 border-white/10  p-4">
                 <p className="text-text-secondary text-sm">
-                  <strong>Trade-off:</strong> Preloading increases initial load time but improves 
-                  first-proof generation time. Best for applications where users will generate 
+                  <strong>Trade-off:</strong> Preloading increases initial load time but improves
+                  first-proof generation time. Best for applications where users will generate
                   proofs immediately.
                 </p>
               </div>

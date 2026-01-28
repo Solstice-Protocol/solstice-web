@@ -45,9 +45,9 @@ const GridCube = ({
                     style={{
                         top: '100%',
                         height: '100%',
-                        backgroundColor: 'rgba(147, 132, 174, 0.5)',
-                        border: '1px solid rgba(147, 132, 174, 0.6)',
-                        boxShadow: '0 0 15px rgba(147, 132, 174, 0.4)',
+                        backgroundColor: 'rgba(80, 80, 80, 0.5)',
+                        border: '1px solid rgba(100, 100, 100, 0.6)',
+                        boxShadow: '0 0 15px rgba(80, 80, 80, 0.4)',
                         transform: 'rotateX(-90deg)',
                         transformOrigin: '50% 0',
                     }}

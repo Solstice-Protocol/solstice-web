@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import LoadingScreen from './components/LoadingScreen';
 import Lenis from 'lenis';
 import Hero from './components/Hero';
 import HowItWorks from './components/HowItWorks';
@@ -70,6 +71,20 @@ function HomePage() {
 }
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
+
   return (
     <BrowserRouter>
       <Routes>
